@@ -21,33 +21,33 @@ theme.useless_gap         = 4  -- useless gap
 -- Fonts
 ------------------------------------------------------------
 theme.fonts = {
-	main     = "Roboto 13",      -- main font
-	menu     = "Roboto 13",      -- main menu font
-	tooltip  = "Roboto 13",      -- tooltip font
-	notify   = "Play bold 14",   -- redflat notify popup font
-	clock    = "Play bold 12",   -- textclock widget font
-	qlaunch  = "Play bold 14",   -- quick launch key label font
-	keychain = "Play bold 16",   -- key sequence tip font
-	title    = "Roboto bold 13", -- widget titles font
-	tiny     = "Roboto bold 10", -- smallest font for widgets
-	titlebar = "Roboto bold 13", -- client titlebar font
+	main     = "Helvetica Neue 12",      -- main font
+	menu     = "Helvetica Neue 12",      -- main menu font
+	tooltip  = "Helvetica Neue 12",      -- tooltip font
+	notify   = "Helvetica Neue bold 14",   -- redflat notify popup font
+	clock    = "Helvetica Neue bold 12",   -- textclock widget font
+	qlaunch  = "Helvetica Neue bold 14",   -- quick launch key label font
+	keychain = "Helvetica Neue bold 16",   -- key sequence tip font
+	title    = "Helvetica Neue Bold 12", -- widget titles font
+	tiny     = "Helvetica Neue bold 10", -- smallest font for widgets
+	titlebar = "Helvetica Neue Bold 12", -- client titlebar font
 	hotkeys  = {
-		main  = "Roboto 14",             -- hotkeys helper main font
+		main  = "Helvetica Neue 14",             -- hotkeys helper main font
 		key   = "Iosevka Term Light 14", -- hotkeys helper key font (use monospace for align)
-		title = "Roboto bold 16",        -- hotkeys helper group title font
+		title = "Helvetica Neue bold 16",        -- hotkeys helper group title font
 	},
 	player   = {
-		main = "Play bold 13", -- player widget main font
-		time = "Play bold 15", -- player widget current time font
+		main = "Helvetica Neue bold 13", -- player widget main font
+		time = "Helvetica Neue bold 15", -- player widget current time font
 	},
 }
 
 theme.cairo_fonts = {
 	tag         = { font = "Play", size = 16, face = 1 }, -- tag widget font
-	appswitcher = { font = "Play", size = 20, face = 1 }, -- appswitcher widget font
+	appswitcher = { font = "Helvetica Neue", size = 20, face = 1 }, -- appswitcher widget font
 	navigator   = {
-		title = { font = "Play", size = 28, face = 1, slant = 0 }, -- window navigation title font
-		main  = { font = "Play", size = 22, face = 1, slant = 0 }  -- window navigation  main font
+		title = { font = "Helvetica Neue", size = 28, face = 1, slant = 0 }, -- window navigation title font
+		main  = { font = "Helvetica Neue", size = 22, face = 1, slant = 0 }  -- window navigation  main font
 	},
 
 	desktop = {

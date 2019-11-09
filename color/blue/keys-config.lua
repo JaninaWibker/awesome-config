@@ -638,7 +638,7 @@ function hotkeys:init(args)
 		},
 		{
 			{ env.mod }, "Tab", focus_to_previous,
-			{ description = "Go to previos client", group = "Client focus" }
+			{ description = "Go to previous client", group = "Client focus" }
 		},
 
 		{
@@ -646,8 +646,12 @@ function hotkeys:init(args)
 			{ description = "Show main menu", group = "Widgets" }
 		},
 		{
-			{ env.mod }, "r", function() apprunner:show() end,
-			{ description = "Application launcher", group = "Widgets" }
+			{ env.mod }, "r", function () awful.spawn("/usr/bin/rofi -modi combi -combi-modi window,drun -show combi") end,
+			{ description = "launch rofi", group = "Widgets" }
+		},
+		{
+			{ env.mod }, "space", function() awful.spawn("/usr/bin/rofi -modi drun -show drun") end,
+			{ description = "launch rofi (combi)", group = "Widgets" }
 		},
 		{
 			{ env.mod }, "p", function() redflat.float.prompt:run() end,
@@ -728,7 +732,7 @@ function hotkeys:init(args)
 
 		{
 			{ env.mod }, "Escape", awful.tag.history.restore,
-			{ description = "Go previos tag", group = "Tag navigation" }
+			{ description = "Go previous tag", group = "Tag navigation" }
 		},
 		{
 			{ env.mod }, "Right", awful.tag.viewnext,

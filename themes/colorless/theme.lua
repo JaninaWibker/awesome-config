@@ -54,37 +54,37 @@ theme.wallpaper = theme.path .. "/wallpaper/primary.png" -- wallpaper file
 -- Fonts
 ------------------------------------------------------------
 theme.fonts = {
-	main     = "sans 12",      -- main font
-	menu     = "sans 12",      -- main menu font
-	tooltip  = "sans 12",      -- tooltip font
-	notify   = "sans bold 14", -- redflat notify popup font
-	clock    = "sans bold 12", -- textclock widget font
-	qlaunch  = "sans bold 14", -- quick launch key label font
-	title    = "sans bold 12", -- widget titles font
-	tiny     = "sans bold 10", -- smallest font for widgets
-	keychain = "sans bold 14", -- key sequence tip font
-	titlebar = "sans bold 12", -- client titlebar font
+	main     = "Helvetica Neue 12",      -- main font
+	menu     = "Helvetica Neue 12",      -- main menu font
+	tooltip  = "Helvetica Neue 12",      -- tooltip font
+	notify   = "Helvetica Neue bold 14", -- redflat notify popup font
+	clock    = "Helvetica Neue bold 12", -- textclock widget font
+	qlaunch  = "Helvetica Neue bold 14", -- quick launch key label font
+	title    = "Helvetica Neue bold 12", -- widget titles font
+	tiny     = "Helvetica Neue bold 10", -- smallest font for widgets
+	keychain = "Helvetica Neue bold 14", -- key sequence tip font
+	titlebar = "Helvetica Neue bold 12", -- client titlebar font
 	hotkeys = {
-		main  = "sans 12",      -- hotkeys helper main font
-		key   = "mono 12",      -- hotkeys helper key font (use monospace for align)
-		title = "sans bold 14", -- hotkeys helper group title font
+		main  = "Helvetica Neue 10",      -- hotkeys helper main font
+		key   = "Menlo 12",      -- hotkeys helper key font (use monospace for align)
+		title = "Helvetica Neue Bold 12", -- hotkeys helper group title font
 	},
 	player   = {
-		main = "sans bold 12", -- player widget main font
-		time = "sans bold 14", -- player widget current time font
+		main = "Helvetica Neue bold 12", -- player widget main font
+		time = "Helvetica Neue bold 14", -- player widget current time font
 	},
 }
 
 theme.cairo_fonts = {
-	tag         = { font = "Sans", size = 16, face = 1 }, -- tag widget font
-	appswitcher = { font = "Sans", size = 22, face = 1 }, -- appswitcher widget font
+	tag         = { font = "Helvetica Neue", size = 16, face = 1 }, -- tag widget font
+	appswitcher = { font = "Helvetica Neue", size = 22, face = 1 }, -- appswitcher widget font
 	navigator   = {
-		title = { font = "Sans", size = 28, face = 1, slant = 0 }, -- window navigation title font
-		main  = { font = "Sans", size = 22, face = 1, slant = 0 }  -- window navigation  main font
+		title = { font = "Helvetica Neue", size = 28, face = 1, slant = 0 }, -- window navigation title font
+		main  = { font = "Helvetica Neue", size = 22, face = 1, slant = 0 }  -- window navigation  main font
 	},
 
 	desktop = {
-		textbox = { font = "Sans", size = 24, face = 1 },
+		textbox = { font = "Helvetica Neue", size = 24, face = 1 },
 	},
 }
 
@@ -400,7 +400,7 @@ function theme:init()
 		point = {
 			width = 80, -- apps indicator total width
 			height = 3, -- apps indicator total height
-			gap = 27,   -- shift from upper border of widget to apps indicator
+			gap = 13,   -- shift from upper border of widget to apps indicator // TODO: USE THIS TO MAKE BAR SMALLER
 			dx = 5      -- gap between apps indicator parts
 		},
 	}
@@ -447,7 +447,7 @@ function theme:init()
 		text_shift = 20,
 		color      = self.color,
 		font       = self.cairo_fonts.tag,
-		point    = { width = 70, height = 3, gap = 27, dx = 5 },
+		point    = { width = 70, height = 3, gap = 17, dx = 5 },
 	}
 
 	self.gauge.task.ruby = {
@@ -607,7 +607,7 @@ function theme:init()
 				silent  = self.icon.system,                   -- disable notification
 			},
 
-			-- widget areas height
+			-- widget areas height -- TODO: change stuff here maybe
 			height = {
 				title = 28,  -- titlebar
 				state = 34,  -- control icon area
@@ -1260,7 +1260,7 @@ function theme:init()
 	--Custom aligned text block
 	------------------------------------------------------------
 	self.desktop.textset = {
-		font  = "Sans 12",         -- font
+		font  = "noto Sans 12",         -- font
 		spacing = 0,               -- space between lines
 		color = self.desktop.color -- color (desktop used)
 	}

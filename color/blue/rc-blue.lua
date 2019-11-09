@@ -86,7 +86,7 @@ taglist.buttons = awful.util.table.join(
 -- Textclock widget
 --------------------------------------------------------------------------------
 local textclock = {}
-textclock.widget = redflat.widget.textclock({ timeformat = "%H:%M", dateformat = "%b  %d  %a" })
+textclock.widget = redflat.widget.textclock({ timeformat = "%H:%M:%S (%d.%m)", dateformat = "%b  %d  %a", timeout = 1 })
 
 -- Software update indcator
 --------------------------------------------------------------------------------
@@ -133,7 +133,7 @@ volume.buttons = awful.util.table.join(
 -- Keyboard layout indicator
 --------------------------------------------------------------------------------
 local kbindicator = {}
-redflat.widget.keyboard:init({ "English", "Russian" })
+redflat.widget.keyboard:init({ "English", "German" })
 kbindicator.widget = redflat.widget.keyboard()
 
 kbindicator.buttons = awful.util.table.join(
@@ -141,25 +141,24 @@ kbindicator.buttons = awful.util.table.join(
 	awful.button({}, 4, function () redflat.widget.keyboard:toggle()      end),
 	awful.button({}, 5, function () redflat.widget.keyboard:toggle(true)  end)
 )
+-- -- Mail widget
+-- --------------------------------------------------------------------------------
+-- -- mail settings template
+-- local my_mails = require("color.blue.mail-example")
 
--- Mail widget
---------------------------------------------------------------------------------
--- mail settings template
-local my_mails = require("color.blue.mail-example")
+-- -- safe load private mail settings
+-- pcall(function() my_mails = require("private.mail-config") end)
 
--- safe load private mail settings
-pcall(function() my_mails = require("private.mail-config") end)
+-- -- widget setup
+-- local mail = {}
+-- redflat.widget.mail:init({ maillist = my_mails })
+-- mail.widget = redflat.widget.mail()
 
--- widget setup
-local mail = {}
-redflat.widget.mail:init({ maillist = my_mails })
-mail.widget = redflat.widget.mail()
-
--- buttons
-mail.buttons = awful.util.table.join(
-	awful.button({ }, 1, function () awful.spawn.with_shell(env.mail) end),
-	awful.button({ }, 2, function () redflat.widget.mail:update(true) end)
-)
+-- -- buttons
+-- mail.buttons = awful.util.table.join(
+-- 	awful.button({ }, 1, function () awful.spawn.with_shell(env.mail) end),
+-- 	awful.button({ }, 2, function () redflat.widget.mail:update(true) end)
+-- )
 
 -- System resource monitoring widgets
 --------------------------------------------------------------------------------
@@ -171,15 +170,15 @@ sysmon.icon.network = redflat.util.table.check(beautiful, "wicon.wireless")
 sysmon.icon.cpuram = redflat.util.table.check(beautiful, "wicon.monitor")
 
 -- battery
-sysmon.widget.battery = redflat.widget.sysmon(
-	{ func = redflat.system.pformatted.bat(25), arg = "BAT0" },
-	{ timeout = 60, widget = redflat.gauge.icon.single, monitor = { is_vertical = true, icon = sysmon.icon.battery } }
-)
+-- sysmon.widget.battery = redflat.widget.sysmon(
+-- 	{ func = redflat.system.pformatted.bat(25), arg = "BAT0" },
+-- 	{ timeout = 60, widget = redflat.gauge.icon.single, monitor = { is_vertical = true, icon = sysmon.icon.battery } }
+-- )
 
 -- network speed
 sysmon.widget.network = redflat.widget.net(
 	{
-		interface = "wlp60s0",
+		interface = "eno1", -- "wlp60s0",
 		alert = { up = 5 * 1024^2, down = 5 * 1024^2 },
 		speed = { up = 6 * 1024^2, down = 6 * 1024^2 },
 		autoscale = false
@@ -224,7 +223,7 @@ awful.screen.connect_for_each_screen(
 		env.wallpaper(s)
 
 		-- tags
-		awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] })
+		awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] }) -- TODO: change tag names here
 
 		-- layoutbox widget
 		layoutbox[s] = redflat.widget.layoutbox({ screen = s })
@@ -236,7 +235,7 @@ awful.screen.connect_for_each_screen(
 		tasklist[s] = redflat.widget.tasklist({ screen = s, buttons = tasklist.buttons }, tasklist.style)
 
 		-- panel wibox
-		s.panel = awful.wibar({ position = "bottom", screen = s, height = beautiful.panel_height or 36 })
+		s.panel = awful.wibar({ position = "top", screen = s, height = beautiful.panel_height or 36 })
 
 		-- add widgets to the wibox
 		s.panel:setup {
@@ -259,10 +258,10 @@ awful.screen.connect_for_each_screen(
 			{ -- right widgets
 				layout = wibox.layout.fixed.horizontal,
 
-				separator,
-				env.wrapper(mail.widget, "mail", mail.buttons),
-				separator,
-				env.wrapper(kbindicator.widget, "keyboard", kbindicator.buttons),
+				-- separator,
+				-- env.wrapper(mail.widget, "mail", mail.buttons),
+				-- separator,
+				-- env.wrapper(kbindicator.widget, "keyboard", kbindicator.buttons),
 				separator,
 				env.wrapper(sysmon.widget.network, "network"),
 				separator,
@@ -270,11 +269,11 @@ awful.screen.connect_for_each_screen(
 				separator,
 				env.wrapper(volume.widget, "volume", volume.buttons),
 				separator,
-				env.wrapper(textclock.widget, "textclock"),
-				separator,
 				env.wrapper(tray.widget, "tray", tray.buttons),
 				separator,
-				env.wrapper(sysmon.widget.battery, "battery"),
+				env.wrapper(textclock.widget, "textclock"),
+				-- separator,
+				-- env.wrapper(sysmon.widget.battery, "battery"),
 			},
 		}
 	end

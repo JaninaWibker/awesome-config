@@ -25,9 +25,9 @@ function env:init(args)
 
 	-- environment vars
 	self.theme = args.theme or "red"
-	self.terminal = args.terminal or "urxvt"
+	self.terminal = args.terminal or "lxterminal" or "urxvt"
 	self.mod = args.mod or "Mod4"
-	self.fm = args.fm or "nemo"
+	self.fm = args.fm or "thunar"
 	self.mail = args.mail or "thunderbird"
 	self.player = args.player or "pragha"
 	self.updates = args.updates or "bash -c 'pacman -Qu | grep -v ignored | wc -l'"
