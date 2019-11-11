@@ -76,7 +76,7 @@ theme.fonts = {
 }
 
 theme.cairo_fonts = {
-	tag         = { font = "Helvetica Neue", size = 16, face = 1 }, -- tag widget font
+	tag         = { font = "Hack", size = 16, face = 1 }, -- tag widget font
 	appswitcher = { font = "Helvetica Neue", size = 22, face = 1 }, -- appswitcher widget font
 	navigator   = {
 		title = { font = "Helvetica Neue", size = 28, face = 1, slant = 0 }, -- window navigation title font
@@ -392,7 +392,7 @@ function theme:init()
 	self.gauge.tag.blue = {
 		width      = 103,                  -- widget width
 		show_min   = false,                -- indicate minimized apps by color
-		text_shift = 20,                   -- shift from upper border of widget to lower border of text
+		text_shift = 12,                   -- shift from upper border of widget to lower border of text
 		color      = self.color,           -- colors (main used)
 		font       = self.cairo_fonts.tag, -- font
 
@@ -400,7 +400,7 @@ function theme:init()
 		point = {
 			width = 80, -- apps indicator total width
 			height = 3, -- apps indicator total height
-			gap = 13,   -- shift from upper border of widget to apps indicator // TODO: USE THIS TO MAKE BAR SMALLER
+			gap = 15,   -- shift from upper border of widget to apps indicator // TODO: USE THIS TO MAKE BAR SMALLER
 			dx = 5      -- gap between apps indicator parts
 		},
 	}
@@ -444,7 +444,7 @@ function theme:init()
 	self.gauge.task.blue = {
 		width      = 70,
 		show_min   = true,
-		text_shift = 20,
+		text_shift = 12,
 		color      = self.color,
 		font       = self.cairo_fonts.tag,
 		point    = { width = 70, height = 3, gap = 17, dx = 5 },
@@ -1415,18 +1415,18 @@ function theme:init()
 	-- font
 	self.font = self.fonts.main
 
-	-- standart awesome notification widget
+	-- standard awesome notification widget
 	self.naughty = {}
 
 	self.naughty.base = {
 		timeout      = 10,
-		margin       = 12,
-		icon_size    = 80,
+		margin       = 4,
+		icon_size    = 48,
 		font         = self.fonts.main,
 		bg           = self.color.wibox,
 		fg           = self.color.text,
 
-		border_width = 4,
+		border_width = 8,
 		border_color = self.color.wibox
 	}
 

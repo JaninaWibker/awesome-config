@@ -60,14 +60,32 @@ end
 
 -- Wallpaper setup
 --------------------------------------------------------------------------------
-env.wallpaper = function(s)
-	if beautiful.wallpaper then
-		if not env.desktop_autohide and awful.util.file_readable(beautiful.wallpaper) then
-			gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+env._wallpaper = function(s, path)
+	if path then
+
+		if not env.desktop_autohide and awful.util.file_readable(path) then
+			gears.wallpaper.maximized(path, s, true)
 		else
 			gears.wallpaper.set(beautiful.color and beautiful.color.bg)
 		end
 	end
+end
+
+env.wallpaper = function(s, override)
+
+	local wallpaper
+
+	if type(override) == "function" then
+		wallpaper = override(s)
+	elseif type(override) == "string" then
+		wallpaper = override
+	elseif type(beautiful.wallpaper) == "function" then
+		wallpaper = beautiful.wallpaper(s)
+	else
+	 	wallpaper = beautiful.wallpaper
+	end
+
+	env._wallpaper(s, wallpaper)
 end
 
 -- Tag tooltip text generation

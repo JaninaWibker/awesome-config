@@ -646,12 +646,12 @@ function hotkeys:init(args)
 			{ description = "Show main menu", group = "Widgets" }
 		},
 		{
-			{ env.mod }, "r", function () awful.spawn("/usr/bin/rofi -modi combi -combi-modi window,drun -show combi") end,
+			{ env.mod }, "r", function () awful.spawn("/usr/bin/rofi -modi combi,calc,run -combi-modi window,drun,ssh,run -show combi -no-history -no-sort -no-show-match -calc-command \"echo '{result} | xclip'\"") end,
 			{ description = "launch rofi", group = "Widgets" }
 		},
 		{
-			{ env.mod }, "space", function() awful.spawn("/usr/bin/rofi -modi drun -show drun") end,
-			{ description = "launch rofi (combi)", group = "Widgets" }
+			{ env.mod }, "space", function() awful.spawn("/usr/bin/rofi -modi drun,window,calc -show drun -no-history -no-sort -no-show-match -calc-command \"echo '{result} | xclip'\"") end,
+			{ description = "launch rofi", group = "Widgets" }
 		},
 		{
 			{ env.mod }, "p", function() redflat.float.prompt:run() end,

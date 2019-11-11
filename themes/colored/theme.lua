@@ -21,29 +21,29 @@ theme.useless_gap         = 4  -- useless gap
 -- Fonts
 ------------------------------------------------------------
 theme.fonts = {
-	main     = "Helvetica Neue 12",      -- main font
-	menu     = "Helvetica Neue 12",      -- main menu font
-	tooltip  = "Helvetica Neue 12",      -- tooltip font
-	notify   = "Helvetica Neue bold 14",   -- redflat notify popup font
-	clock    = "Helvetica Neue bold 12",   -- textclock widget font
-	qlaunch  = "Helvetica Neue bold 14",   -- quick launch key label font
-	keychain = "Helvetica Neue bold 16",   -- key sequence tip font
-	title    = "Helvetica Neue Bold 12", -- widget titles font
-	tiny     = "Helvetica Neue bold 10", -- smallest font for widgets
-	titlebar = "Helvetica Neue Bold 12", -- client titlebar font
+	main     = "Helvetica Neue 12",     	-- main font
+	menu     = "Source Code Pro 12",     	-- main menu font
+	tooltip  = "Menlo Bold 10",     			-- tooltip font
+	notify   = "Helvetica Neue bold 14",	-- redflat notify popup font
+	clock    = "Menlo Bold 10",   				-- textclock widget font
+	qlaunch  = "Helvetica Neue bold 14",	-- quick launch key label font
+	keychain = "Menlo bold 16",	-- key sequence tip font
+	title    = "Helvetica Neue Bold 12",	-- widget titles font
+	tiny     = "Helvetica Neue bold 10",	-- smallest font for widgets
+	titlebar = "Helvetica Neue Bold 12",	-- client titlebar font
 	hotkeys  = {
-		main  = "Helvetica Neue 14",             -- hotkeys helper main font
-		key   = "Iosevka Term Light 14", -- hotkeys helper key font (use monospace for align)
-		title = "Helvetica Neue bold 16",        -- hotkeys helper group title font
+		main  = "Helvetica Neue 14",        -- hotkeys helper main font
+		key   = "Source Code Pro Light 12", 		-- hotkeys helper key font (use monospace for align)
+		title = "Helvetica Neue bold 16",   -- hotkeys helper group title font
 	},
 	player   = {
-		main = "Helvetica Neue bold 13", -- player widget main font
-		time = "Helvetica Neue bold 15", -- player widget current time font
+		main = "Helvetica Neue bold 13",		-- player widget main font
+		time = "Helvetica Neue bold 15",		-- player widget current time font
 	},
 }
 
 theme.cairo_fonts = {
-	tag         = { font = "Play", size = 16, face = 1 }, -- tag widget font
+	tag         = { font = "Source Code Pro", size = 12, face = 1 }, -- tag widget font
 	appswitcher = { font = "Helvetica Neue", size = 20, face = 1 }, -- appswitcher widget font
 	navigator   = {
 		title = { font = "Helvetica Neue", size = 28, face = 1, slant = 0 }, -- window navigation title font

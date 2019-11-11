@@ -3,6 +3,7 @@
 -----------------------------------------------------------------------------------------------------------------------
 local awful = require("awful")
 
+local naughty = require("naughty")
 -- This theme was inherited from another with overwriting some values
 -- Check parent theme to find full settings list and its description
 local theme = require("themes/colored/theme")
@@ -21,8 +22,31 @@ theme.path = awful.util.get_configuration_dir() .. "themes/blue"
 -- Main config
 --------------------------------------------------------------------------------
 theme.panel_height = 24 -- panel height -- TODO: change this to like 24 or something (breaks other things)
-theme.wallpaper    = theme.path .. "/wallpaper/custom.jpg"
+-- theme.wallpaper    = theme.path .. "/wallpaper/custom.jpg"
+-- theme.wallpaper_vertical = theme.path .. "/wallpaper/315.jpg"
 
+theme.wallpaper = function(s)
+
+	local clients = ""
+	for i, client in ipairs(s.all_clients) do
+		clients = clients .. ", " .. v
+	end
+
+		-- naughty.notify({
+		-- 	title   = "wallpaper",
+		-- 	timeout = 1,
+		-- 	text    = "\nindex: " .. s.index .. ", width: " .. s.geometry.width .. ", height: " .. s.geometry.height .. ", clients: " .. clients
+		-- })
+
+	if s.geometry.width > s.geometry.height then
+		-- leftmost monitor index 1
+		-- middle monitors index 2 & 3
+		-- rightmost monitor index 4
+		return theme.path .. "/wallpaper/custom.jpg"
+	else
+		return "/home/jannik/Downloads/Warm Poly Rotated.png"
+	end
+end
 -- Setup parent theme settings
 --------------------------------------------------------------------------------
 theme:update()
@@ -110,7 +134,7 @@ theme.widget.wrapper = {
 
 -- Various widgets style tuning
 ------------------------------------------------------------
-theme.widget.tasklist.char_digit = 5
+theme.widget.tasklist.char_digit = 8
 theme.widget.tasklist.task = theme.gauge.task.blue
 
 -- End

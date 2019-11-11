@@ -217,13 +217,29 @@ sysmon.buttons.cpuram = awful.util.table.join(
 local al = awful.layout.layouts
 
 -- setup
+-- TOOD: this is called per screen, maybe add some customization per individual screen (also check if 4 screens are connected, if not don't do anything special)
 awful.screen.connect_for_each_screen(
 	function(s)
 		-- wallpaper
 		env.wallpaper(s)
 
+		if screen:count() ~= 4 then
+			awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] })
+		else
+
+			if		 s.index == 1	then
+				awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] })
+			elseif s.index == 2 then
+				awful.tag({ "Main", "Full", "Other" }, s, { al[5], al[6], al[3] })
+			elseif s.index == 3 then
+				awful.tag({ "Main", "Full", "Other" }, s, { al[5], al[6], al[3] })
+			elseif s.index == 4 then
+				awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] })
+			end
+		end
+
 		-- tags
-		awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] }) -- TODO: change tag names here
+		-- awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] }) -- TODO: change tag names here
 
 		-- layoutbox widget
 		layoutbox[s] = redflat.widget.layoutbox({ screen = s })
@@ -237,31 +253,26 @@ awful.screen.connect_for_each_screen(
 		-- panel wibox
 		s.panel = awful.wibar({ position = "top", screen = s, height = beautiful.panel_height or 36 })
 
-		-- add widgets to the wibox
-		s.panel:setup {
+		local left_widgets = {
+			layout = wibox.layout.fixed.horizontal,
+			env.wrapper(layoutbox[s], "layoutbox", layoutbox.buttons),
+			separator,
+			env.wrapper(taglist[s], "taglist"),
+			separator,
+		}
+
+		local middle_widget = {
 			layout = wibox.layout.align.horizontal,
-			{ -- left widgets
+			expand = "outside",
+			nil,
+			env.wrapper(tasklist[s], "tasklist"),
+		}
+
+		local right_widgets = {}
+
+		if screen:count() ~= 4 then
+			right_widgets = {
 				layout = wibox.layout.fixed.horizontal,
-
-				env.wrapper(layoutbox[s], "layoutbox", layoutbox.buttons),
-				separator,
-				env.wrapper(taglist[s], "taglist"),
-				separator,
-			},
-			{ -- middle widget
-				layout = wibox.layout.align.horizontal,
-				expand = "outside",
-
-				nil,
-				env.wrapper(tasklist[s], "tasklist"),
-			},
-			{ -- right widgets
-				layout = wibox.layout.fixed.horizontal,
-
-				-- separator,
-				-- env.wrapper(mail.widget, "mail", mail.buttons),
-				-- separator,
-				-- env.wrapper(kbindicator.widget, "keyboard", kbindicator.buttons),
 				separator,
 				env.wrapper(sysmon.widget.network, "network"),
 				separator,
@@ -272,9 +283,87 @@ awful.screen.connect_for_each_screen(
 				env.wrapper(tray.widget, "tray", tray.buttons),
 				separator,
 				env.wrapper(textclock.widget, "textclock"),
-				-- separator,
-				-- env.wrapper(sysmon.widget.battery, "battery"),
-			},
+			}
+		else
+
+			if 	   s.index == 1 then
+				right_widgets = {
+					layout = wibox.layout.fixed.horizontal,
+					separator,
+					env.wrapper(sysmon.widget.network, "network"),
+					separator,
+					env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
+					separator,
+					env.wrapper(volume.widget, "volume", volume.buttons),
+					separator,
+					env.wrapper(tray.widget, "tray", tray.buttons),
+					separator,
+					env.wrapper(textclock.widget, "textclock"),
+				}
+			elseif s.index == 2 then
+				right_widgets = {
+					layout = wibox.layout.fixed.horizontal,
+					separator,
+					env.wrapper(volume.widget, "volume", volume.buttons),
+					separator,
+					env.wrapper(tray.widget, "tray", tray.buttons),
+					separator,
+					env.wrapper(textclock.widget, "textclock"),
+				}
+			elseif s.index == 3 then
+				right_widgets = {
+					layout = wibox.layout.fixed.horizontal,
+					separator,
+					env.wrapper(volume.widget, "volume", volume.buttons),
+					separator,
+					env.wrapper(tray.widget, "tray", tray.buttons),
+					separator,
+					env.wrapper(textclock.widget, "textclock"),
+				}
+			elseif s.index == 4 then
+				right_widgets = {
+					layout = wibox.layout.fixed.horizontal,
+					separator,
+					env.wrapper(sysmon.widget.network, "network"),
+					separator,
+					env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
+					separator,
+					env.wrapper(volume.widget, "volume", volume.buttons),
+					separator,
+					env.wrapper(tray.widget, "tray", tray.buttons),
+					separator,
+					env.wrapper(textclock.widget, "textclock"),
+				}	
+			end
+		end
+
+		-- local right_widgets = { -- right widgets
+		-- 	layout = wibox.layout.fixed.horizontal,
+
+		-- 	-- separator,
+		-- 	-- env.wrapper(mail.widget, "mail", mail.buttons),
+		-- 	-- separator,
+		-- 	-- env.wrapper(kbindicator.widget, "keyboard", kbindicator.buttons),
+		-- 	separator,
+		-- 	env.wrapper(sysmon.widget.network, "network"),
+		-- 	separator,
+		-- 	env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
+		-- 	separator,
+		-- 	env.wrapper(volume.widget, "volume", volume.buttons),
+		-- 	separator,
+		-- 	env.wrapper(tray.widget, "tray", tray.buttons),
+		-- 	separator,
+		-- 	env.wrapper(textclock.widget, "textclock"),
+		-- 	-- separator,
+		-- 	-- env.wrapper(sysmon.widget.battery, "battery"),
+		-- }
+
+		-- add widgets to the wibox
+		s.panel:setup {
+			layout = wibox.layout.align.horizontal,
+			left_widgets,
+			middle_widget,
+			right_widgets,
 		}
 	end
 )
