@@ -654,6 +654,10 @@ function hotkeys:init(args)
 			{ description = "launch rofi", group = "Widgets" }
 		},
 		{
+			{ "Control", "Shift" }, "4", function() awful.spawn("/usr/bin/flameshot gui") end,
+			{ description = "Take screenshot", group = "Widgets" }
+		},
+		{
 			{ env.mod }, "p", function() redflat.float.prompt:run() end,
 			{ description = "Show the prompt box", group = "Widgets" }
 		},

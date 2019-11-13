@@ -6,7 +6,9 @@
 local beautiful = require("beautiful")
 local redflat = require("redflat")
 local awful = require("awful")
+local _dbus = dbus; dbus = nil
 local naughty = require("naughty")
+dbus = _dbus
 
 
 -- Initialize tables and vars for module

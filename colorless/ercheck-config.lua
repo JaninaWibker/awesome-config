@@ -1,4 +1,6 @@
+local _dbus = dbus; dbus = nil
 local naughty = require("naughty")
+dbus = _dbus
 
 if awesome.startup_errors then
 	naughty.notify({

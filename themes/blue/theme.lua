@@ -3,7 +3,7 @@
 -----------------------------------------------------------------------------------------------------------------------
 local awful = require("awful")
 
-local naughty = require("naughty")
+-- local naughty = require("naughty")
 -- This theme was inherited from another with overwriting some values
 -- Check parent theme to find full settings list and its description
 local theme = require("themes/colored/theme")

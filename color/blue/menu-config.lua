@@ -81,9 +81,11 @@ function menu:init(args)
 			{ "Places",        placesmenu,  	micon("folder_home"), key = "p" },
 			separator,
 			{ "Terminal",      env.terminal,	micon("terminal"), key = "t" },
-			{ "Thunar",          env.fm,    	micon("folder"), key = "f" },
+			{ "Thunar",        env.fm,      	micon("folder"), key = "f" },
 			{ "Chrome",        "chromium",		micon("browser"), key = "c" },
-			{ "VS Code",        "code",				micon("code"), key = "v" },
+			{ "VS Code",       "code",				micon("code"), key = "v" },
+			{ "Discord",			 "discord",		  micon("idk"), key = "d" },
+			{ "Spotify",			 "spotify",		  micon("music"), key = "s" },
 			separator,
 			{ "Exit",          exitmenu,     micon("exit") },
 		}
