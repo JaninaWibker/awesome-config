@@ -1,6 +1,5 @@
-<svg height="48" width="48" xmlns="http://www.w3.org/2000/svg">
-  <g fill="#a0a0a0" transform="matrix(1.9999997 0 0 1.9999997 -875.68786 -253.98595)">
-    <path d="m456.844 138.993-19 12v-24z"/>
-    <path d="m457.84399 126.993h4v24h-4z"/>
-  </g>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-skip-forward">
+  <polygon points="5 4 15 12 5 20 5 4"></polygon>
+  <line x1="19" y1="5" x2="19" y2="19"></line>
 </svg>
