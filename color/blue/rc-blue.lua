@@ -251,7 +251,7 @@ awful.screen.connect_for_each_screen(
 		tasklist[s] = redflat.widget.tasklist({ screen = s, buttons = tasklist.buttons }, tasklist.style)
 
 		-- panel wibox
-		s.panel = awful.wibar({ position = "top", screen = s, height = beautiful.panel_height or 36 })
+		s.panel = awful.wibar({ position = "top", screen = s, height = beautiful.panel_height or 36, bg = beautiful.bg_normal .. "20" })
 
 		local left_widgets = {
 			layout = wibox.layout.fixed.horizontal,
