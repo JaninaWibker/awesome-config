@@ -29,8 +29,8 @@ function autostart.run()
 
 	-- apps
 	awful.spawn.with_shell("clipflap")
-	awful.spawn.with_shell("transmission-gtk -m")
 	awful.spawn.with_shell("pragha --toggle_view")
+	awful.spawn.with_shell("flameshot")
 end
 
 -- Read and commads from file and spawn them

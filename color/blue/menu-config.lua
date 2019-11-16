@@ -28,6 +28,7 @@ function menu:init(args)
 	local default_icon = redflat.util.base.placeholder()
 	local icon = redflat.util.table.check(beautiful, "icon.awesome") and beautiful.icon.awesome or default_icon
 	local color = redflat.util.table.check(beautiful, "color.icon") and beautiful.color.icon or nil
+	local theme_path = awful.util.get_configuration_dir() .. "themes/colored"
 
 	-- icon finder
 	local function micon(name)
@@ -39,53 +40,53 @@ function menu:init(args)
 
 	-- Application submenu
 	------------------------------------------------------------
-	local appmenu = redflat.service.dfparser.menu({ icons = icon_style, wm_name = "awesome" })
+	local appmenu = redflat.service.dfparser.menu({ icons = icon_style, wm_name = "awesome", base_path = theme_path })
 
 	-- Awesome submenu
 	------------------------------------------------------------
 	local awesomemenu = {
 		{ "Restart",         awesome.restart,                 micon("gnome-session-reboot") },
 		separator,
-		{ "Awesome config",  env.fm .. " .config/awesome",        micon("folder-bookmarks") },
-		{ "Awesome lib",     env.fm .. " /usr/share/awesome/lib", micon("folder-bookmarks") }
+		{ "Awesome config",  env.fm .. " .config/awesome",        micon(theme_path .. "/applications/folder.svg") },
+		{ "Awesome lib",     env.fm .. " /usr/share/awesome/lib", micon(theme_path .. "/applications/folder.svg") }
 	}
 
 	-- Places submenu
 	------------------------------------------------------------
 	local placesmenu = {
-		{ "Downloads",   env.fm .. " Downloads", micon("folder-download")  },
-		{ "Documents",   env.fm .. " Documents", micon("folder-documents") },
-		{ "Home",				 env.fm .. "",					 micon("folder-bookmarks") },
+		{ "Downloads",   env.fm .. " Downloads", micon(theme_path .. "/folder/downloads.svg")  },
+		{ "Documents",   env.fm .. " Documents", micon(theme_path .. "/folder/documents.svg") },
+		{ "Home",				 env.fm .. "",					 micon(theme_path .. "/folder/home.svg") },
 		separator,
-		{ "Media",       env.fm .. " /mnt/media",   micon("folder-bookmarks") },
-		{ "Storage",     env.fm .. " /mnt/storage", micon("folder-bookmarks") },
+		{ "Media",       env.fm .. " /mnt/media",   micon(theme_path .. "/applications/folder.svg") },
+		{ "Storage",     env.fm .. " /mnt/storage", micon(theme_path .. "/applications/folder.svg") },
 	}
 
 	-- Exit submenu
 	------------------------------------------------------------
 	local exitmenu = {
-		{ "Reboot",          "reboot",                    micon("gnome-session-reboot")  },
-		{ "Shutdown",        "shutdown now",              micon("system-shutdown")       },
+		{ "Reboot",          "reboot",                    micon(theme_path .. "/system/reboot.svg") },
+		{ "Shutdown",        "shutdown now",              micon(theme_path .. "/system/shutdown.svg") },
 		separator,
-		{ "Switch user",     "dm-tool switch-to-greeter", micon("gnome-session-switch")  },
-		{ "Suspend",         "systemctl suspend" ,        micon("gnome-session-suspend") },
-		{ "Log out",         awesome.quit,                micon("exit")                  },
+		{ "Switch user",     "dm-tool switch-to-greeter", micon(theme_path .. "/system/switch-users.svg") },
+		{ "Suspend",         "systemctl suspend" ,        micon(theme_path .. "/system/lock.svg") },
+		{ "Log out",         awesome.quit,                micon(theme_path .. "/system/log-out.svg") },
 	}
 
 	-- Main menu
 	------------------------------------------------------------
 	self.mainmenu = redflat.menu({ theme = theme,
 		items = {
-			{ "Awesome",       awesomemenu, 	micon("awesome") },
-			{ "Applications",  appmenu,     	micon("distributor-logo"), key = "a" },
-			{ "Places",        placesmenu,  	micon("folder_home"), key = "p" },
+			{ "Awesome",       awesomemenu, 	micon(theme_path .. "/applications/awesome.svg") },
+			{ "Applications",  appmenu,     	micon(theme_path .. "/applications/applications.svg"), key = "a" },
+			{ "Places",        placesmenu,  	micon(theme_path .. "/applications/folder.svg"), key = "p" },
 			separator,
-			{ "Terminal",      env.terminal,	micon("terminal"), key = "t" },
-			{ "Thunar",        env.fm,      	micon("folder"), key = "f" },
-			{ "Chrome",        "chromium",		micon("browser"), key = "c" },
-			{ "VS Code",       "code",				micon("code"), key = "v" },
-			{ "Discord",			 "discord",		  micon("idk"), key = "d" },
-			{ "Spotify",			 "spotify",		  micon("music"), key = "s" },
+			{ "Terminal",      env.terminal,	micon(theme_path .. "/applications/terminal.svg"), key = "t" },
+			{ "Thunar",        env.fm,      	micon(theme_path .. "/applications/folder.svg"), key = "f" },
+			{ "Chrome",        "chromium",		micon(theme_path .. "/applications/browser.svg"), key = "c" },
+			{ "VS Code",       "code",				micon(theme_path .. "/applications/vscode.svg"), key = "v" },
+			{ "Discord",			 "discord",		  micon(theme_path .. "/applications/discord.svg"), key = "d" },
+			{ "Spotify",			 "spotify",		  micon(theme_path .. "/applications/spotify.svg"), key = "s" },
 			separator,
 			{ "Exit",          exitmenu,     micon("exit") },
 		}
