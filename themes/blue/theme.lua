@@ -11,7 +11,7 @@ local theme = require("themes/colored/theme")
 
 -- Color scheme
 -----------------------------------------------------------------------------------------------------------------------
-theme.color.main   = "#064E71"
+theme.color.main   = "#B614AB"
 theme.color.urgent = "#B32601"
 
 
@@ -42,7 +42,7 @@ theme.wallpaper = function(s)
 		-- leftmost monitor index 1
 		-- middle monitors index 2 & 3
 		-- rightmost monitor index 4
-		return theme.path .. "/wallpaper/custom.jpg"
+		return theme.path .. "/wallpaper/astronaut-jellyfish-space.jpg"
 	else
 		return "/home/jannik/Downloads/Warm Poly Rotated.png"
 	end

@@ -45,7 +45,7 @@ function menu:init(args)
 	-- Awesome submenu
 	------------------------------------------------------------
 	local awesomemenu = {
-		{ "Restart",         awesome.restart,                 micon("gnome-session-reboot") },
+		{ "Restart",         awesome.restart,                 micon(theme_path .. "/system/reboot.svg") },
 		separator,
 		{ "Awesome config",  env.fm .. " .config/awesome",        micon(theme_path .. "/applications/folder.svg") },
 		{ "Awesome lib",     env.fm .. " /usr/share/awesome/lib", micon(theme_path .. "/applications/folder.svg") }
@@ -69,7 +69,7 @@ function menu:init(args)
 		{ "Shutdown",        "shutdown now",              micon(theme_path .. "/system/shutdown.svg") },
 		separator,
 		{ "Switch user",     "dm-tool switch-to-greeter", micon(theme_path .. "/system/switch-users.svg") },
-		{ "Suspend",         "systemctl suspend" ,        micon(theme_path .. "/system/lock.svg") },
+		{ "Hibernate",       "systemctl suspend" ,        micon(theme_path .. "/system/lock.svg") },
 		{ "Log out",         awesome.quit,                micon(theme_path .. "/system/log-out.svg") },
 	}
 

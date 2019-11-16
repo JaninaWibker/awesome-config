@@ -14,7 +14,7 @@ theme.color = {
 	gray      = "#575757",
 	bg        = "#161616",
 	bg_second = "#181818",
-	wibox     = "#202020",
+	wibox     = "#000000",
 	icon      = "#a0a0a0",
 	text      = "#aaaaaa",
 	urgent    = "#B25500",
@@ -528,7 +528,7 @@ function theme:init()
 	self.widget.minitray = {
 		dotcount     = {}, -- redflat dotcount style (see theme.gauge.graph.dots)
 		border_width = 0,  -- floating widget border width
-		geometry     = { height = 40 }, -- floating widget size
+		geometry     = { position = "top", height = 40 }, -- floating widget size
 		screen_gap   = 2 * self.useless_gap, -- minimal space from screen edge on floating widget placement
 		shape        = nil, -- wibox shape
 		color        = { wibox = self.color.wibox, border = self.color.wibox },

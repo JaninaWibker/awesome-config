@@ -763,21 +763,39 @@ function hotkeys:init(args)
 			{ env.mod, "Control", "Shift" }, "t", function() redtitle.global_switch() end,
 			{ description = "Switch titlebar view for all clients", group = "Titlebar" }
 		},
-
 		{
-			{ env.mod }, "e", function() redflat.float.player:show(rb_corner()) end,
-			{ description = "Show/hide widget", group = "Audio player" }
+			{ env.mod }, "e", function() awful.spawn(env.fm) end,
+			{ description = "Open filemanager", group = "Widgets" }
+		},
+
+		-- {
+		-- 	{ env.mod }, "e", function() redflat.float.player:show(rb_corner()) end,
+		-- 	{ description =    "Show/hide widget", group = "Audio player" }
+		-- },
+		{
+			{}, "XF86AudioPrev", function() awful.spawn("playerctl previous") end,
+			{ description = "Previous track", group = "Audio player" }
 		},
 		{
-			{}, "XF86AudioPlay", function() redflat.float.player:action("PlayPause") end,
+			{}, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end,
 			{ description = "Play/Pause track", group = "Audio player" }
 		},
 		{
-			{}, "XF86AudioNext", function() redflat.float.player:action("Next") end,
+			{}, "XF86AudioNext", function() awful.spawn("playerctl next") end,
+			{ description = "Next track", group = "Audio player" }
+		},
+
+		{
+			{ env.mod }, "F7", function() awful.spawn("playerctl next") end,
 			{ description = "Next track", group = "Audio player" }
 		},
 		{
-			{}, "XF86AudioPrev", function() redflat.float.player:action("Previous") end,
+			{ env.mod }, "F8", function() awful.spawn("playerctl play-pause") end,
+			{ description = "Play/Pause track", group = "Audio player" }
+		},
+		
+		{
+			{ env.mod }, "F9", function() awful.spawn("playerctl previous") end,
 			{ description = "Previous track", group = "Audio player" }
 		},
 
