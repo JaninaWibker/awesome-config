@@ -613,12 +613,11 @@ function hotkeys:init(args)
 		},
 
 		{
-			{ env.mod, "Shift" }, "l", function() awful.screen.focus_relative( 1) end,
+			{ env.mod, "Shift" }, "j", function() awful.screen.focus_relative( 1) end,
 			{ description = "focus the next screen", group = "screen" }
 		},
-
 		{
-			{ env.mod, "Shift" }, "h", function() awful.screen.focus_relative(-1) end,
+			{ env.mod, "Shift" }, "k", function() awful.screen.focus_relative(-1) end,
 			{ description = "focus the previous screen", group = "screen" }
 		},
 
@@ -836,6 +835,14 @@ function hotkeys:init(args)
 		{
 			{ env.mod }, "m", function(c) c.maximized = not c.maximized; c:raise() end,
 			{ description = "Maximize", group = "Client keys" }
+		},
+		{
+			{ env.mod, "Shift" }, "l", function(c) c:move_to_screen(c.screen.index+1) end,
+			{ description = "move client to next screen", group = "screen" }
+		},
+		{
+			{ env.mod, "Shift" }, "h", function(c) c:move_to_screen(c.screen.index-1) end,
+			{ description = "move client to previous screen", group = "screen" }
 		}
 	}
 
