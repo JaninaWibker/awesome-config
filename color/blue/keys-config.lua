@@ -613,11 +613,11 @@ function hotkeys:init(args)
 		},
 
 		{
-			{ env.mod, "Shift" }, "j", function() awful.screen.focus_relative( 1) end,
+			{ env.mod, "Shift" }, "k", function() awful.screen.focus_relative( 1) end,
 			{ description = "focus the next screen", group = "screen" }
 		},
 		{
-			{ env.mod, "Shift" }, "k", function() awful.screen.focus_relative(-1) end,
+			{ env.mod, "Shift" }, "j", function() awful.screen.focus_relative(-1) end,
 			{ description = "focus the previous screen", group = "screen" }
 		},
 
