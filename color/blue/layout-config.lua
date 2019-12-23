@@ -17,13 +17,16 @@ function layouts:init()
 
 	-- layouts list
 	local layset = {
-		awful.layout.suit.floating,
-		redflat.layout.grid,
-		awful.layout.suit.tile,
-		awful.layout.suit.fair,
-		redflat.layout.map,
-		awful.layout.suit.max,
-		awful.layout.suit.max.fullscreen,
+		awful.layout.suit.floating, -- 1
+		redflat.layout.grid, -- 2
+		awful.layout.suit.tile.right, -- 3
+		awful.layout.suit.tile.left, -- 4
+		awful.layout.suit.fair, -- 5
+		redflat.layout.map, -- 6
+		awful.layout.suit.max, -- 7
+		awful.layout.suit.max.fullscreen, -- 8
+		awful.layout.suit.tile.bottom, -- 9
+		awful.layout.suit.tile.top, -- 10
 	}
 
 	awful.layout.layouts = layset

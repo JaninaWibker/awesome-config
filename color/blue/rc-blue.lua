@@ -194,7 +194,7 @@ local cpuram_func = function()
 	local mem_usage = redflat.system.memory_info().usep
 
 	return {
-		text = "CPU: " .. cpu_usage .. "%  " .. "RAM: " .. mem_usage .. "%",
+		text = "cpu: " .. cpu_usage .. "%  " .. "ram: " .. mem_usage .. "%",
 		value = { cpu_usage / 100,  mem_usage / 100},
 		alert = cpu_usage > 80 or mem_usage > 70
 	}
@@ -216,6 +216,17 @@ sysmon.buttons.cpuram = awful.util.table.join(
 -- aliases for setup
 local al = awful.layout.layouts
 
+--  1: Floating
+--  2: Grid
+--  3: Right Tile
+--  4: Left Tile
+--  5: Fair Tile
+--  6: User Map
+--  7: Maximized
+--  8: Fullscreen
+--  9: Bottom Tile
+-- 10: Top Tile
+
 -- setup
 -- TOOD: this is called per screen, maybe add some customization per individual screen (also check if 4 screens are connected, if not don't do anything special)
 awful.screen.connect_for_each_screen(
@@ -224,17 +235,17 @@ awful.screen.connect_for_each_screen(
 		env.wallpaper(s)
 
 		if screen:count() ~= 4 then
-			awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] })
+			awful.tag({ "Main", "Full", "Code", "Read", "Free" }, s, { al[6], al[7], al[7], al[5], al[3] })
 		else
 
 			if		 s.index == 1	then
-				awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] })
+				awful.tag({ "Main", "Full", "Code", "Read", "Free" }, s, { al[6], al[7], al[7], al[5], al[3] })
 			elseif s.index == 2 then
-				awful.tag({ "Main", "Full", "Other" }, s, { al[5], al[6], al[3] })
+				awful.tag({ "Main", "Full", "Other" }, s, { al[9], al[7], al[6] })
 			elseif s.index == 3 then
-				awful.tag({ "Main", "Full", "Other" }, s, { al[5], al[6], al[3] })
+				awful.tag({ "Main", "Full", "Other" }, s, { al[9], al[7], al[6] })
 			elseif s.index == 4 then
-				awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] })
+				awful.tag({ "Main", "Full", "Code", "Read", "Free" }, s, { al[6], al[7], al[7], al[5], al[4] })
 			end
 		end
 
@@ -258,7 +269,6 @@ awful.screen.connect_for_each_screen(
 			env.wrapper(layoutbox[s], "layoutbox", layoutbox.buttons),
 			separator,
 			env.wrapper(taglist[s], "taglist"),
-			separator,
 		}
 
 		local middle_widget = {
@@ -273,15 +283,10 @@ awful.screen.connect_for_each_screen(
 		if screen:count() ~= 4 then
 			right_widgets = {
 				layout = wibox.layout.fixed.horizontal,
-				separator,
 				env.wrapper(sysmon.widget.network, "network"),
-				separator,
 				env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
-				separator,
 				env.wrapper(volume.widget, "volume", volume.buttons),
-				separator,
 				env.wrapper(tray.widget, "tray", tray.buttons),
-				separator,
 				env.wrapper(textclock.widget, "textclock"),
 			}
 		else
@@ -289,49 +294,33 @@ awful.screen.connect_for_each_screen(
 			if 	   s.index == 1 then
 				right_widgets = {
 					layout = wibox.layout.fixed.horizontal,
-					separator,
 					env.wrapper(sysmon.widget.network, "network"),
-					separator,
 					env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
-					separator,
 					env.wrapper(volume.widget, "volume", volume.buttons),
-					separator,
 					env.wrapper(tray.widget, "tray", tray.buttons),
-					separator,
 					env.wrapper(textclock.widget, "textclock"),
 				}
 			elseif s.index == 2 then
 				right_widgets = {
 					layout = wibox.layout.fixed.horizontal,
-					separator,
 					env.wrapper(volume.widget, "volume", volume.buttons),
-					separator,
 					env.wrapper(tray.widget, "tray", tray.buttons),
-					separator,
 					env.wrapper(textclock.widget, "textclock"),
 				}
 			elseif s.index == 3 then
 				right_widgets = {
 					layout = wibox.layout.fixed.horizontal,
-					separator,
 					env.wrapper(volume.widget, "volume", volume.buttons),
-					separator,
 					env.wrapper(tray.widget, "tray", tray.buttons),
-					separator,
 					env.wrapper(textclock.widget, "textclock"),
 				}
 			elseif s.index == 4 then
 				right_widgets = {
 					layout = wibox.layout.fixed.horizontal,
-					separator,
 					env.wrapper(sysmon.widget.network, "network"),
-					separator,
 					env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
-					separator,
 					env.wrapper(volume.widget, "volume", volume.buttons),
-					separator,
 					env.wrapper(tray.widget, "tray", tray.buttons),
-					separator,
 					env.wrapper(textclock.widget, "textclock"),
 				}	
 			end
