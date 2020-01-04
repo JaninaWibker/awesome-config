@@ -13,7 +13,7 @@ xidlehook \
     '' \
   `# Undim & lock after 10 more seconds` \
   --timer 10 \
-    'sh $HOME/.config/awesome/scripts/i3lock.sh; sleep 1; xset dpms force off' \
+    'sh $HOME/.config/awesome/scripts/i3lock.sh; sleep 5; xset dpms force off' \
     '' \
   `# Finally, suspend an hour after it locks` \
   --timer 3600 \
