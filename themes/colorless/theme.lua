@@ -291,9 +291,9 @@ function theme:init()
 		-- progressbar style
 		line = {
 			width = 4, -- progressbar height
-			v_gap = 6, -- space between progressbar
-			gap = 4,   -- gap between progressbar dashes
-			num = 5    -- number of progressbar dashes
+			v_gap = 4, -- space between progressbar
+			gap = 2,   -- gap between progressbar dashes
+			num = 5    -- number of progressbar dashes -- TODO: use this to change number of bars in "taskbar"
 		},
 	}
 
@@ -318,7 +318,7 @@ function theme:init()
 	-- Volume indicator
 	------------------------------------------------------------
 	self.gauge.audio.blue = {
-		width   = 75,               -- widget width
+		width   = 55,               -- widget width
 		dmargin = { 10, 0, 2, 2 },  -- margins around dash area
 		icon    = self.icon.system, -- volume icon
 
@@ -326,7 +326,7 @@ function theme:init()
 		color = { icon = self.color.icon, mute = self.color.urgent },
 
 		-- dash style
-		dash = { bar = { num = 5, width = 4 } },
+		dash = { bar = { num = 5, width = 3 } },
 	}
 
 	self.gauge.audio.red = {
@@ -1120,7 +1120,7 @@ function theme:init()
 	self.titlebar.base = {
 		position      = "top",               -- titlebar position
 		font          = self.fonts.titlebar, -- titlebar font
-		border_margin = { 0, 0, 0, 4 },      -- margins around titlebar active area
+		border_margin = { 0, 0, 0, 1 },      -- margins around titlebar active area -- TODO: this is important
 		color         = self.color,          -- colors (main used)
 	}
 
@@ -1153,7 +1153,7 @@ function theme:init()
 	--------------------------------------------------------------------------------
 	self.desktop = { common = { bar = {}, pack = {} }, speedmeter = {} }
 
-	self.desktop.line_height = 18 -- text and progressbar height for desktop wodgets
+	self.desktop.line_height = 18 -- text and progressbar height for desktop widgets
 
 	-- desktop widget colors
 	self.desktop.color = {

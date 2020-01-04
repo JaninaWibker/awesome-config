@@ -15,7 +15,7 @@ theme.path = awful.util.get_configuration_dir() .. "themes/colored"
 -- Main config
 ------------------------------------------------------------
 theme.panel_height        = 36 -- panel height
-theme.border_width        = 4  -- window border width
+theme.border_width        = 1  -- window border width
 theme.useless_gap         = 4  -- useless gap
 
 -- Fonts
@@ -27,13 +27,13 @@ theme.fonts = {
 	notify   = "Helvetica Neue bold 14",	-- redflat notify popup font
 	clock    = "Menlo Bold 10",   				-- textclock widget font
 	qlaunch  = "Helvetica Neue bold 14",	-- quick launch key label font
-	keychain = "Menlo bold 16",	-- key sequence tip font
+	keychain = "Menlo bold 16",						-- key sequence tip font
 	title    = "Helvetica Neue Bold 12",	-- widget titles font
 	tiny     = "Helvetica Neue bold 10",	-- smallest font for widgets
 	titlebar = "Helvetica Neue Bold 12",	-- client titlebar font
 	hotkeys  = {
 		main  = "Helvetica Neue 14",        -- hotkeys helper main font
-		key   = "Source Code Pro Light 12", 		-- hotkeys helper key font (use monospace for align)
+		key   = "Source Code Pro Light 12", -- hotkeys helper key font (use monospace for align)
 		title = "Helvetica Neue bold 16",   -- hotkeys helper group title font
 	},
 	player   = {
@@ -43,11 +43,11 @@ theme.fonts = {
 }
 
 theme.cairo_fonts = {
-	tag         = { font = "Source Code Pro", size = 12, face = 1 }, -- tag widget font
-	appswitcher = { font = "Helvetica Neue", size = 20, face = 1 }, -- appswitcher widget font
+	tag         = { font = "Source Code Pro", size = 12, face = 1 },				-- tag widget font
+	appswitcher = { font = "Helvetica Neue", size = 20, face = 1 },					-- appswitcher widget font
 	navigator   = {
-		title = { font = "Helvetica Neue", size = 28, face = 1, slant = 0 }, -- window navigation title font
-		main  = { font = "Helvetica Neue", size = 22, face = 1, slant = 0 }  -- window navigation  main font
+		title = { font = "Helvetica Neue", size = 28, face = 1, slant = 0 },	-- window navigation title font
+		main  = { font = "Helvetica Neue", size = 22, face = 1, slant = 0 }		-- window navigation  main font
 	},
 
 	desktop = {
