@@ -88,6 +88,21 @@ taglist.buttons = awful.util.table.join(
 local textclock = {}
 textclock.widget = redflat.widget.textclock({ timeformat = "%H:%M:%S (%d.%m)", dateformat = "%b  %d  %a", timeout = 1 })
 
+local calendar_widget = redflat.float.calendar({
+	-- options like theme or placement
+	placement = "top_right"
+})
+
+textclock.buttons = awful.util.table.join(
+	awful.button({}, 1, function() calendar_widget.toggle() end)
+)
+
+-- textclock:connect_signal("button::press", 
+--   function(_, _, _, button)
+--       if button == 1 then calendar_widget.toggle() end
+--   end
+-- )
+
 -- Software update indcator
 --------------------------------------------------------------------------------
 redflat.widget.updates:init({ command = env.updates })
@@ -287,7 +302,7 @@ awful.screen.connect_for_each_screen(
 				env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
 				env.wrapper(volume.widget, "volume", volume.buttons),
 				env.wrapper(tray.widget, "tray", tray.buttons),
-				env.wrapper(textclock.widget, "textclock"),
+				env.wrapper(textclock.widget, "textclock", textclock.buttons),
 			}
 		else
 
@@ -298,21 +313,21 @@ awful.screen.connect_for_each_screen(
 					env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
 					env.wrapper(volume.widget, "volume", volume.buttons),
 					env.wrapper(tray.widget, "tray", tray.buttons),
-					env.wrapper(textclock.widget, "textclock"),
+					env.wrapper(textclock.widget, "textclock", textclock.buttons),
 				}
 			elseif s.index == 2 then
 				right_widgets = {
 					layout = wibox.layout.fixed.horizontal,
 					env.wrapper(volume.widget, "volume", volume.buttons),
 					env.wrapper(tray.widget, "tray", tray.buttons),
-					env.wrapper(textclock.widget, "textclock"),
+					env.wrapper(textclock.widget, "textclock", textclock.buttons),
 				}
 			elseif s.index == 3 then
 				right_widgets = {
 					layout = wibox.layout.fixed.horizontal,
 					env.wrapper(volume.widget, "volume", volume.buttons),
 					env.wrapper(tray.widget, "tray", tray.buttons),
-					env.wrapper(textclock.widget, "textclock"),
+					env.wrapper(textclock.widget, "textclock", textclock.buttons),
 				}
 			elseif s.index == 4 then
 				right_widgets = {
@@ -321,7 +336,7 @@ awful.screen.connect_for_each_screen(
 					env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
 					env.wrapper(volume.widget, "volume", volume.buttons),
 					env.wrapper(tray.widget, "tray", tray.buttons),
-					env.wrapper(textclock.widget, "textclock"),
+					env.wrapper(textclock.widget, "textclock", textclock.buttons),
 				}	
 			end
 		end
@@ -342,7 +357,7 @@ awful.screen.connect_for_each_screen(
 		-- 	separator,
 		-- 	env.wrapper(tray.widget, "tray", tray.buttons),
 		-- 	separator,
-		-- 	env.wrapper(textclock.widget, "textclock"),
+		-- 	env.wrapper(textclock.widget, "textclock", textclock.buttons),
 		-- 	-- separator,
 		-- 	-- env.wrapper(sysmon.widget.battery, "battery"),
 		-- }
