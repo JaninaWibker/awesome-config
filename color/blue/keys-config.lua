@@ -613,6 +613,11 @@ function hotkeys:init(args)
 		},
 
 		{
+			{ env.mod, "Mod1" }, "l", function() awful.util.spawn("xidlehook-client --socket /home/jannik/xidlehook.sock control --action Trigger --timer 1") end,
+			{ description = "lock the screen", group = "Actions" }
+		},
+
+		{
 			{ env.mod, "Shift" }, "k", function() awful.screen.focus_relative( 1) end,
 			{ description = "focus the next screen", group = "screen" }
 		},

@@ -17,6 +17,12 @@ function autostart.run()
 	awful.spawn.with_shell("python ~/scripts/env/color-profile-setup.py")
 	awful.spawn.with_shell("python ~/scripts/env/kbd-setup.py")
 
+	-- screen locking
+	awful.spawn.with_shell('sh ~/.config/awesome/scripts/locker.sh')
+	
+	-- keyboard layout
+	awful.spawn.with_shell('setxkbmap ed')
+
 	-- gnome environment
 	awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
@@ -31,6 +37,7 @@ function autostart.run()
 	awful.spawn.with_shell("clipflap")
 	awful.spawn.with_shell("pragha --toggle_view")
 	awful.spawn.with_shell("flameshot")
+	awful.spawn.with_shell('kdeconnect-indicator')
 end
 
 -- Read and commads from file and spawn them
