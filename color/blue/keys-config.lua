@@ -209,6 +209,10 @@ function hotkeys:init(args)
 			{ description = "Select next app", group = "Navigation" }
 		},
 		{
+			{ env.mod }, "Right", function() appswitcher:switch({ reverse = true }) end,
+			{} -- hidden key
+		},
+		{
 			{ env.mod, "Shift" }, "a", function() appswitcher:switch({ reverse = true }) end,
 			{} -- hidden key
 		},
@@ -217,7 +221,19 @@ function hotkeys:init(args)
 			{ description = "Select previous app", group = "Navigation" }
 		},
 		{
+			{ env.mod }, "Left", function() appswitcher:switch() end,
+			{} -- hidden key
+		},
+		{
 			{ env.mod, "Shift" }, "s", function() appswitcher:switch() end,
+			{} -- hidden key
+		},
+		{
+			{ env.mod }, "q", function() appswitcher:close_current() end,
+			{ description = "Quit application", group = "Action" }
+		},
+		{
+			{ env.mod, "Shift" }, "q", function() appswitcher:close_current() end,
 			{} -- hidden key
 		},
 		{
