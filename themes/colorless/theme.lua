@@ -894,12 +894,12 @@ function theme:init()
 		},
 
 		border_margin   = { 10, 10, 0, 10 },  -- margins around widget content
-		preview_margin  = { 15, 15, 15, 15 }, -- margins around application preview
-		preview_format  = 16 / 10,            -- preview acpect ratio
+		preview_margin  = { 5, 15, 5, 15 }, -- margins around application preview
+		preview_format  = 16 / 10,            -- preview aspect ratio
 		title_font      = self.fonts.title,   -- font of widget title line
 		border_width    = 0,                  -- widget border width
 		update_timeout  = 1 / 12,             -- application preview update timeout
-		min_icon_number = 4,                  -- this one will define the minimal widget width
+		min_icon_number = 2,                  -- this one will define the minimal widget width
 		                                      -- (widget will not shrink if number of apps items less then this)
 		color           = self.color,         -- colors (main used)
 		font            = self.cairo_fonts.appswitcher, -- font of application mark(key)

@@ -32,22 +32,22 @@ theme.fonts = {
 	tiny     = "Helvetica Neue bold 10",	-- smallest font for widgets
 	titlebar = "Helvetica Neue Bold 12",	-- client titlebar font
 	hotkeys  = {
-		main  = "Helvetica Neue 14",        -- hotkeys helper main font
+		main  = "Noto Sans 12",        -- hotkeys helper main font
 		key   = "Source Code Pro Light 12", -- hotkeys helper key font (use monospace for align)
-		title = "Helvetica Neue bold 16",   -- hotkeys helper group title font
+		title = "Noto Sans bold 14",   -- hotkeys helper group title font
 	},
 	player   = {
-		main = "Helvetica Neue bold 13",		-- player widget main font
-		time = "Helvetica Neue bold 15",		-- player widget current time font
+		main = "Noto Sans bold 12",		-- player widget main font
+		time = "Noto Sans bold 14",		-- player widget current time font
 	},
 }
 
 theme.cairo_fonts = {
 	tag         = { font = "Source Code Pro", size = 12, face = 1 },				-- tag widget font
-	appswitcher = { font = "Helvetica Neue", size = 20, face = 1 },					-- appswitcher widget font
+	appswitcher = { font = "Menlo", size = 12, face = 1 },					-- appswitcher widget font
 	navigator   = {
-		title = { font = "Helvetica Neue", size = 28, face = 1, slant = 0 },	-- window navigation title font
-		main  = { font = "Helvetica Neue", size = 22, face = 1, slant = 0 }		-- window navigation  main font
+		title = { font = "Source Code Pro", size = 24, face = 1, slant = 0 },	-- window navigation title font
+		main  = { font = "Source Code Pro", size = 16, face = 1, slant = 0 }		-- window navigation  main font
 	},
 
 	desktop = {
