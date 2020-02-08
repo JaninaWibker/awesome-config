@@ -25,7 +25,7 @@ function env:init(args)
 
 	-- environment vars
 	self.theme = args.theme or "red"
-	self.terminal = args.terminal or "lxterminal" or "st" or "urxvt" or "termite"
+	self.terminal = args.terminal or "alacritty" or "lxterminal" or "st" or "urxvt" or "termite"
 	self.mod = args.mod or "Mod4"
 	self.fm = args.fm or "thunar"
 	self.mail = args.mail or "thunderbird"

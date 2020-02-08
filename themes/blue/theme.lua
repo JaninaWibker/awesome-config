@@ -138,7 +138,7 @@ theme.widget.wrapper = {
 
 -- Various widgets style tuning
 ------------------------------------------------------------
-theme.widget.tasklist.char_digit = 8
+theme.widget.tasklist.char_digit = 9
 theme.widget.tasklist.task = theme.gauge.task.blue
 
 -- End

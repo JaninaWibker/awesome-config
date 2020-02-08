@@ -680,8 +680,24 @@ function hotkeys:init(args)
 			{ description = "launch rofi", group = "Widgets" }
 		},
 		{
+			{ "Control", "Shift" }, "2", function() awful.spawn("/usr/bin/flameshot full -c") end,
+			{ description = "Take screenshot (full)", group = "Widgets" }
+		},
+		{
+			{ "Control", "Shift" }, "3", function() awful.spawn("/usr/bin/flameshot screen -c") end,
+			{ description = "Take screenshot (screen)", group = "Widgets" }
+		},
+		{
+			{ "Control", "Shift" }, "F2", function() awful.spawn("/usr/bin/flameshot full -c -d 2000") end,
+			{ description = "Take screenshot (full; delay 2s)", group = "Widgets" }
+		},
+		{
+			{ "Control", "Shift" }, "F3", function() awful.spawn("/usr/bin/flameshot screen -c -d 2000") end,
+			{ description = "Take screenshot (screen; delay 2s)", group = "Widgets" }
+		},
+		{
 			{ "Control", "Shift" }, "4", function() awful.spawn("/usr/bin/flameshot gui") end,
-			{ description = "Take screenshot", group = "Widgets" }
+			{ description = "Take screenshot (area)", group = "Widgets" }
 		},
 		{
 			{ env.mod }, "p", function() redflat.float.prompt:run() end,
