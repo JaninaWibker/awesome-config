@@ -65,9 +65,9 @@ theme.fonts = {
 	keychain = "Helvetica Neue bold 14", -- key sequence tip font
 	titlebar = "Helvetica Neue bold 12", -- client titlebar font
 	hotkeys = {
-		main  = "Helvetica Neue 10",      -- hotkeys helper main font
-		key   = "Menlo 12",      -- hotkeys helper key font (use monospace for align)
-		title = "Helvetica Neue Bold 12", -- hotkeys helper group title font
+		main  = "Helvetica Neue 8",      -- hotkeys helper main font
+		key   = "Menlo 10",      -- hotkeys helper key font (use monospace for align)
+		title = "Menlo 12", -- hotkeys helper group title font
 	},
 	player   = {
 		main = "Helvetica Neue bold 12", -- player widget main font

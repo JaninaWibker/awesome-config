@@ -354,15 +354,15 @@ function hotkeys:init(args)
 			{ description = "Increase master width factor", group = "Layout" }
 		},
 		{
-			{ env.mod }, "j", function () awful.tag.incmwfact(-0.05) end,
+			{ env.mod }, "h", function () awful.tag.incmwfact(-0.05) end,
 			{ description = "Decrease master width factor", group = "Layout" }
 		},
 		{
-			{ env.mod }, "i", function () awful.client.incwfact( 0.05) end,
+			{ env.mod }, "k", function () awful.client.incwfact( 0.05) end,
 			{ description = "Increase window factor of a client", group = "Layout" }
 		},
 		{
-			{ env.mod }, "k", function () awful.client.incwfact(-0.05) end,
+			{ env.mod }, "j", function () awful.client.incwfact(-0.05) end,
 			{ description = "Decrease window factor of a client", group = "Layout" }
 		},
 		{
@@ -670,6 +670,10 @@ function hotkeys:init(args)
 		{
 			{ env.mod }, "w", function() mainmenu:show() end,
 			{ description = "Show main menu", group = "Widgets" }
+		},
+		{
+			{ env.mod }, "d", function() awful.spawn("/usr/bin/dmenu_run") end,
+			{ description = "launch dmenu", group = "Widgets" }
 		},
 		{
 			{ env.mod }, "r", function () awful.spawn("/usr/bin/rofi -modi combi,calc,run -combi-modi window,drun,ssh,run -show combi -no-history -no-sort -no-show-match -calc-command \"echo '{result} | xclip'\"") end,
