@@ -704,10 +704,6 @@ function hotkeys:init(args)
 			{ description = "Take screenshot (area)", group = "Widgets" }
 		},
 		{
-			{ env.mod }, "p", function() redflat.float.prompt:run() end,
-			{ description = "Show the prompt box", group = "Widgets" }
-		},
-		{
 			{ env.mod }, "x", function() redflat.float.top:show("cpu") end,
 			{ description = "Show the top process list", group = "Widgets" }
 		},
