@@ -684,6 +684,14 @@ function hotkeys:init(args)
 			{ description = "launch rofi", group = "Widgets" }
 		},
 		{
+			{ env.mod }, "F3", function() awful.spawn.with_shell("sh $HOME/scripts/script-launcher") end,
+			{ description = "script launcher (rofi)", group = "Widgets" }
+		},
+		{
+			{ env.mod }, "F4", function() awful.spawn.with_shell("if command -v rofimoji; then rofimoji; else notify-send -u critical 'rofimoji not installed'; fi") end,
+			{ description = "emojipicker (rofimoji)", group = "Widgets" }
+		},
+		{
 			{ "Control", "Shift" }, "2", function() awful.spawn("/usr/bin/flameshot full -c") end,
 			{ description = "Take screenshot (full)", group = "Widgets" }
 		},
