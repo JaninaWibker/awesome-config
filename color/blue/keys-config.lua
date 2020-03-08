@@ -629,7 +629,7 @@ function hotkeys:init(args)
 		},
 
 		{
-			{ env.mod, "Mod1" }, "l", function() awful.util.spawn("sh $HOME/scripts/lock-screen screen-off &") end,
+			{ env.mod, "Mod1" }, "l", function() awful.spawn.with_shell("sh $HOME/scripts/lock-screen screen-off") end,
 			{ description = "lock the screen", group = "Actions" }
 		},
 
