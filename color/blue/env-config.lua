@@ -22,10 +22,9 @@ function env:init(args)
 
 	-- init vars
 	args = args or {}
-
 	-- environment vars
 	self.theme = args.theme or "red"
-	self.terminal = args.terminal or "alacritty" or "lxterminal" or "st" or "urxvt" or "termite"
+	self.terminal = args.terminal or "alacritty"
 	self.mod = args.mod or "Mod4"
 	self.fm = args.fm or "thunar"
 	self.mail = args.mail or "thunderbird"
@@ -33,13 +32,18 @@ function env:init(args)
 	self.updates = args.updates or "bash -c 'pacman -Qu | grep -v ignored | wc -l'"
 	self.home = os.getenv("HOME")
 	self.themedir = awful.util.get_configuration_dir() .. "themes/" .. self.theme
-
 	-- boolean defaults is pain
 	self.sloppy_focus = args.sloppy_focus or false
 	self.color_border_focus = args.color_border_focus or false
 	self.set_slave = args.set_slave == nil and true or false
 	self.set_center = args.set_center or false
 	self.desktop_autohide = args.desktop_autohide or false
+
+	-- high dpi
+	self.is_high_dpi = true -- os.getenv("HIGH_DPI") == 1 -- TODO: remove "true -- "
+
+	-- light / dark theme
+	self.is_light_theme = os.getenv("THEME_VARIANT") == "dark"
 
 	-- theme setup
 	beautiful.init(env.themedir .. "/theme.lua")

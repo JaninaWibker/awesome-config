@@ -1,0 +1,14 @@
+{
+    "Lua.diagnostics.globals": [
+        "awesome",
+        "client",
+        "dbus",
+        "mouse",
+        "lock",
+        "screen",
+        "root",
+        "unpack"
+    ],
+    "Lua.diagnostics.disable": [
+    ]
+}

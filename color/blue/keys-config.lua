@@ -629,7 +629,7 @@ function hotkeys:init(args)
 		},
 
 		{
-			{ env.mod, "Mod1" }, "l", function() awful.util.spawn("xidlehook-client --socket /home/jannik/xidlehook.sock control --action Trigger --timer 1") end,
+			{ env.mod, "Mod1" }, "l", function() awful.util.spawn("sh $HOME/scripts/lock-screen screen-off &") end,
 			{ description = "lock the screen", group = "Actions" }
 		},
 

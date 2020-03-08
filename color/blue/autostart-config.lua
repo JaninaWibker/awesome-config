@@ -13,29 +13,24 @@ local autostart = {}
 --------------------------------------------------------------------------------
 function autostart.run()
 	-- environment
-	awful.spawn.with_shell("python ~/scripts/env/pa-setup.py")
-	awful.spawn.with_shell("python ~/scripts/env/color-profile-setup.py")
-	awful.spawn.with_shell("python ~/scripts/env/kbd-setup.py")
 
 	-- screen locking
-	awful.spawn.with_shell('sh ~/.config/awesome/scripts/locker.sh')
+	awful.spawn.with_shell('sh $HOME/scripts/idle-lock-screen')
 	
 	-- keyboard layout
 	awful.spawn.with_shell('setxkbmap ed')
 
 	-- gnome environment
-	awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+	-- awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
 	-- firefox sync
-	awful.spawn.with_shell("python ~/scripts/firefox/ff-sync.py")
+	-- awful.spawn.with_shell("python ~/scripts/firefox/ff-sync.py")
 
 	-- utils
 	awful.spawn.with_shell("compton")
 	awful.spawn.with_shell("nm-applet")
 
 	-- apps
-	awful.spawn.with_shell("clipflap")
-	awful.spawn.with_shell("pragha --toggle_view")
 	awful.spawn.with_shell("flameshot")
 	awful.spawn.with_shell('kdeconnect-indicator')
 end

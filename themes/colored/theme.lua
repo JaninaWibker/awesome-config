@@ -8,6 +8,8 @@ local awful = require("awful")
 local theme = require("themes/colorless/theme")
 
 
+local is_high_dpi = true -- os.getenv("HIGH_DPI") == 1 -- TODO: remove "true -- "
+
 -- Common
 -----------------------------------------------------------------------------------------------------------------------
 theme.path = awful.util.get_configuration_dir() .. "themes/colored"
@@ -21,30 +23,30 @@ theme.useless_gap         = 6  -- useless gap
 -- Fonts
 ------------------------------------------------------------
 theme.fonts = {
-	main     = "Helvetica Neue 12",     	-- main font
-	menu     = "Source Code Pro 12",     	-- main menu font
-	tooltip  = "Menlo Bold 10",     			-- tooltip font
+	main     = "Helvetica Neue " .. (is_high_dpi and "7" or "14"),     	-- main font
+	menu     = "Source Code Pro " .. (is_high_dpi and "7" or "14"),     	-- main menu font
+	tooltip  = "Menlo Bold " .. (is_high_dpi and "6" or "12"),     			-- tooltip font
 	notify   = "Helvetica Neue bold 14",	-- redflat notify popup font
-	clock    = "Menlo Bold 10",   				-- textclock widget font
+	clock    = "Menlo Bold " .. (is_high_dpi and "6" or "12"),   				-- textclock widget font
 	qlaunch  = "Helvetica Neue bold 14",	-- quick launch key label font
 	keychain = "Menlo bold 16",						-- key sequence tip font
-	title    = "Helvetica Neue Bold 12",	-- widget titles font
+	title    = "Helvetica Neue Bold " .. (is_high_dpi and "6" or "12"),	-- widget titles font -- TODO: not tested
 	tiny     = "Helvetica Neue bold 10",	-- smallest font for widgets
-	titlebar = "Helvetica Neue Bold 12",	-- client titlebar font
+	titlebar = "Helvetica Neue Bold " .. (is_high_dpi and "6" or "12"),	-- client titlebar font -- TODO: not tested
 	hotkeys  = {
-		main  = "Noto Sans 12",        -- hotkeys helper main font
-		key   = "Source Code Pro Light 12", -- hotkeys helper key font (use monospace for align)
-		title = "Noto Sans bold 14",   -- hotkeys helper group title font
+		main  = "Noto Sans " .. (is_high_dpi and "6" or "12"),        -- hotkeys helper main font
+		key   = "Source Code Pro Light " .. (is_high_dpi and "6" or "12"), -- hotkeys helper key font (use monospace for align)
+		title = "Noto Sans bold " .. (is_high_dpi and "7" or "14"),   -- hotkeys helper group title font
 	},
 	player   = {
-		main = "Noto Sans bold 12",		-- player widget main font
-		time = "Noto Sans bold 14",		-- player widget current time font
+		main = "Noto Sans bold " .. (is_high_dpi and "6" or "12"),		-- player widget main font
+		time = "Noto Sans bold " .. (is_high_dpi and "7" or "14"),		-- player widget current time font
 	},
 }
 
 theme.cairo_fonts = {
 	tag         = { font = "Source Code Pro", size = 12, face = 1 },				-- tag widget font
-	appswitcher = { font = "Menlo", size = 12, face = 1 },					-- appswitcher widget font
+	appswitcher = { font = "Menlo", size = (is_high_dpi and 6 or 12), face = 1 },					-- appswitcher widget font
 	navigator   = {
 		title = { font = "Source Code Pro", size = 24, face = 1, slant = 0 },	-- window navigation title font
 		main  = { font = "Source Code Pro", size = 16, face = 1, slant = 0 }		-- window navigation  main font

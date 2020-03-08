@@ -29,11 +29,6 @@ theme.panel_height = 24 -- panel height -- TODO: change this to like 24 or somet
 
 theme.wallpaper = function(s)
 
-	local clients = ""
-	for i, client in ipairs(s.all_clients) do
-		clients = clients .. ", " .. v
-	end
-
 		-- naughty.notify({
 		-- 	title   = "wallpaper",
 		-- 	timeout = 1,

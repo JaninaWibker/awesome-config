@@ -90,14 +90,16 @@ textclock.widget = redflat.widget.textclock({ timeformat = "%H:%M:%S (%d.%m)", d
 
 local calendar_widget = redflat.float.calendar({
 	-- options like theme or placement
-	placement = "top_right"
+	placement = "top_right",
+	is_high_dpi = env.is_high_dpi,
+	theme = env.is_light_theme and 'light' or 'dark'
 })
 
 textclock.buttons = awful.util.table.join(
 	awful.button({}, 1, function() calendar_widget.toggle() end)
 )
 
--- textclock:connect_signal("button::press", 
+-- textclock:connect_signal("button::press",
 --   function(_, _, _, button)
 --       if button == 1 then calendar_widget.toggle() end
 --   end
@@ -254,13 +256,13 @@ awful.screen.connect_for_each_screen(
 		else
 
 			if		 s.index == 1	then
-				awful.tag({ "Main", "Full", "Code", "Read", "Free" }, s, { al[6], al[7], al[7], al[5], al[3] })
+				awful.tag({ "Main", "Full", "Code", "Read", "Split" }, s, { al[6], al[7], al[7], al[5], al[3] }) -- H Left
 			elseif s.index == 2 then
-				awful.tag({ "Main", "Full", "Other" }, s, { al[9], al[7], al[6] })
+				awful.tag({ "Music", "Full", "Aux" }, s, { al[9], al[7], al[6] }) -- V Left
 			elseif s.index == 3 then
-				awful.tag({ "Main", "Full", "Other" }, s, { al[9], al[7], al[6] })
+				awful.tag({ "Comm", "Term", "Aux" }, s, { al[9], al[7], al[6] }) -- V Right
 			elseif s.index == 4 then
-				awful.tag({ "Main", "Full", "Code", "Read", "Free" }, s, { al[6], al[7], al[7], al[5], al[4] })
+				awful.tag({ "Main", "Full", "Code", "Read", "Split" }, s, { al[6], al[7], al[7], al[5], al[4] }) -- H Right
 			end
 		end
 

@@ -1,3 +1,4 @@
 #!/usr/env/bin bash
 
-betterlockscreen -l dim &
+# TODO: delete this file
+sh $HOME/scripts/lock-screen
