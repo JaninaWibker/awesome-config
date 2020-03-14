@@ -692,6 +692,10 @@ function hotkeys:init(args)
 			{ description = "emojipicker (rofimoji)", group = "Widgets" }
 		},
 		{
+			{ env.mod }, "F5", function() awful.spawn.with_shell("if command -v xfce4-find-cursor; then xfce4-find-cursor; else notify-send -u critical 'xfce4-find-cursor not installed'; fi") end,
+			{ description = "find cursor", group = "Widgets" }
+		},
+		{
 			{ "Control", "Shift" }, "2", function() awful.spawn("/usr/bin/flameshot full -c") end,
 			{ description = "Take screenshot (full)", group = "Widgets" }
 		},
@@ -714,10 +718,6 @@ function hotkeys:init(args)
 		{
 			{ env.mod }, "x", function() redflat.float.top:show("cpu") end,
 			{ description = "Show the top process list", group = "Widgets" }
-		},
-		{
-			{ env.mod, "Control" }, "m", function() redflat.widget.mail:update(true) end,
-			{ description = "Check new mail", group = "Widgets" }
 		},
 		{
 			{ env.mod, "Control" }, "i", function() redflat.widget.minitray:toggle() end,
@@ -856,10 +856,6 @@ function hotkeys:init(args)
 		{
 			{ env.mod }, "f", function(c) c.fullscreen = not c.fullscreen; c:raise() end,
 			{ description = "Toggle fullscreen", group = "Client keys" }
-		},
-		{
-			{ env.mod }, "F4", function(c) c:kill() end,
-			{ description = "Close", group = "Client keys" }
 		},
 		{
 			{ env.mod, "Shift" }, "q", function(c) c:kill() end,

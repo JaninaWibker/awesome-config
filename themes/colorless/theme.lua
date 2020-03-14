@@ -1082,24 +1082,13 @@ function theme:init()
 	------------------------------------------------------------
 	self.float.notify = {
 		geometry        = { width = 484, height = 106 }, -- widget size
-		screen_gap      = 2 * self.useless_gap,          -- screen edges gap on placement
-		border_margin   = { 20, 20, 20, 20 },            -- margins around widget content
-		elements_margin = { 20, 0, 10, 10 },             -- margins around main elements (text and bar)
-		font            = self.fonts.notify,             -- widget font
 		icon            = self.icon.warning,             -- default widget icon
-		border_width    = 0,                             -- widget border width
 		timeout         = 5,                             -- hide timeout
-		shape           = nil,                           -- wibox shape
 		color           = self.color,                    -- colors (main used)
 
 		-- progressbar is optional element used for some notifications
 		bar_width       = 8,                             -- progressbar width
 		progressbar     = {},                            -- redflat progressbar style (see theme.gauge.graph.bar)
-
-		-- placement function
-		set_position = function(wibox)
-			wibox:geometry({ x = mouse.screen.workarea.x + mouse.screen.workarea.width, y = mouse.screen.workarea.y })
-		end,
 	}
 
 	-- Decoration (various elements that used as component for other widgets) style
