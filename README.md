@@ -4,11 +4,15 @@ Custom config for [Awesome WM](http://awesome.naquadah.org).
 This config is compatible with AwesomeWM version 4.0 and newer.
 
 ## Screenshot
+
 <!--suppress HtmlDeprecatedAttribute --><p align="center">My forked version</p>
-![Forked Version](https://i.imgur.com/hEFKuEZ.png)
+![Forked Version - light](https://i.imgur.com/PsJ8N5c.png)
+
+<!--suppress HtmlDeprecatedAttribute --><p align="center">My forked version</p>
+![Forked Version - dark](https://i.imgur.com/xr7zcJV.png)
 
 <!--suppress HtmlDeprecatedAttribute --><p align="center">Original version</p>
-![](https://github.com/worron/awesome-config/wiki/images/v400/ruby.png)
+![Original version](https://github.com/worron/awesome-config/wiki/images/v400/ruby.png)
 <!--suppress HtmlDeprecatedAttribute --><p align="center"><a href="https://github.com/worron/awesome-config/wiki">Gallery</a></p>
 <!--suppress HtmlDeprecatedAttribute --><p align="center"><a href="https://youtu.be/_1M1Wv64JGA">Video Demo</a></p>
 
