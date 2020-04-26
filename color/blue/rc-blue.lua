@@ -255,14 +255,14 @@ awful.screen.connect_for_each_screen(
 			awful.tag({ "Main", "Full", "Code", "Read", "Free" }, s, { al[6], al[7], al[7], al[5], al[3] })
 		else
 
-			if		 s.index == 1	then
-				awful.tag({ "Main", "Full", "Code", "Read", "Split" }, s, { al[6], al[7], al[7], al[5], al[3] }) -- H Left
-			elseif s.index == 2 then
-				awful.tag({ "Music", "Full", "Aux" }, s, { al[9], al[7], al[6] }) -- V Left
-			elseif s.index == 3 then
-				awful.tag({ "Comm", "Term", "Aux" }, s, { al[9], al[7], al[6] }) -- V Right
-			elseif s.index == 4 then
-				awful.tag({ "Main", "Full", "Code", "Read", "Split" }, s, { al[6], al[7], al[7], al[5], al[4] }) -- H Right
+			if		 s.index == 2	then -- right vertical
+				awful.tag({ "Music", "Full", "Aux" }, s, { al[9], al[7], al[6] })
+			elseif s.index == 3 then -- left vertical
+				awful.tag({ "Comm", "Term", "Aux" }, s, { al[9], al[7], al[6] })
+			elseif s.index == 4 then -- right horizontal
+				awful.tag({ "Main", "Full", "Code", "Read", "Split" }, s, { al[6], al[7], al[7], al[5], al[4] })
+			elseif s.index == 1 then -- left horizontal
+				awful.tag({ "Main", "Full", "Code", "Read", "Split" }, s, { al[6], al[7], al[7], al[5], al[3] })
 			end
 		end
 
@@ -308,7 +308,21 @@ awful.screen.connect_for_each_screen(
 			}
 		else
 
-			if 	   s.index == 1 then
+			if 	   s.index == 2 then -- right vertical
+				right_widgets = {
+					layout = wibox.layout.fixed.horizontal,
+					env.wrapper(volume.widget, "volume", volume.buttons),
+					env.wrapper(tray.widget, "tray", tray.buttons),
+					env.wrapper(textclock.widget, "textclock", textclock.buttons),
+				}
+			elseif s.index == 3 then -- left vertical
+				right_widgets = {
+					layout = wibox.layout.fixed.horizontal,
+					env.wrapper(volume.widget, "volume", volume.buttons),
+					env.wrapper(tray.widget, "tray", tray.buttons),
+					env.wrapper(textclock.widget, "textclock", textclock.buttons),
+				}
+			elseif s.index == 4 then -- right horizontal
 				right_widgets = {
 					layout = wibox.layout.fixed.horizontal,
 					env.wrapper(sysmon.widget.network, "network"),
@@ -317,21 +331,7 @@ awful.screen.connect_for_each_screen(
 					env.wrapper(tray.widget, "tray", tray.buttons),
 					env.wrapper(textclock.widget, "textclock", textclock.buttons),
 				}
-			elseif s.index == 2 then
-				right_widgets = {
-					layout = wibox.layout.fixed.horizontal,
-					env.wrapper(volume.widget, "volume", volume.buttons),
-					env.wrapper(tray.widget, "tray", tray.buttons),
-					env.wrapper(textclock.widget, "textclock", textclock.buttons),
-				}
-			elseif s.index == 3 then
-				right_widgets = {
-					layout = wibox.layout.fixed.horizontal,
-					env.wrapper(volume.widget, "volume", volume.buttons),
-					env.wrapper(tray.widget, "tray", tray.buttons),
-					env.wrapper(textclock.widget, "textclock", textclock.buttons),
-				}
-			elseif s.index == 4 then
+			elseif s.index == 1 then -- left horizontal
 				right_widgets = {
 					layout = wibox.layout.fixed.horizontal,
 					env.wrapper(sysmon.widget.network, "network"),
@@ -339,7 +339,7 @@ awful.screen.connect_for_each_screen(
 					env.wrapper(volume.widget, "volume", volume.buttons),
 					env.wrapper(tray.widget, "tray", tray.buttons),
 					env.wrapper(textclock.widget, "textclock", textclock.buttons),
-				}	
+				}
 			end
 		end
 

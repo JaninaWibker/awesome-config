@@ -66,9 +66,19 @@ function rules:init(args)
 			end
 		},
 		{
-			rule_any   = { type = { "normal", "dialog" }},
+			rule_any   = { type = { "normal" }},
+			except_any = self.titlebar_exceptions,
+			properties = { titlebars_enabled = false }
+		},
+		{
+			rule_any   = { type = { "dialog" }},
 			except_any = self.titlebar_exceptions,
 			properties = { titlebars_enabled = true }
+		},
+		{
+			rule_any   = { type = { "floating" }},
+			except_any = self.titlebar_exceptions,
+			properties = { titlebars_enabled = true },
 		},
 		{
 			rule_any   = { type = { "normal" }},
