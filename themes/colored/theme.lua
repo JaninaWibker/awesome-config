@@ -63,7 +63,7 @@ theme.wicon = {
 	battery    = theme.path .. "/widget/battery.svg",
 	wireless   = theme.path .. "/widget/wireless.svg",
 	monitor    = theme.path .. "/widget/monitor.svg",
-	audio      = theme.path .. "/widget/audio.svg",
+	vol_base   = theme.path .. "/widget/volume-base.svg",
 	vol_low    = theme.path .. "/widget/volume-low.svg",
 	vol_high   = theme.path .. "/widget/volume-high.svg",
 	vol_off    = theme.path .. "/widget/volume-off.svg",
@@ -137,7 +137,7 @@ function theme:update()
 
 	-- Volume control
 	------------------------------------------------------------
-	self.gauge.audio.red.icon = { volume = self.wicon.audio, mute = self.wicon.mute }
+	self.gauge.audio.red.icon = { volume = self.wicon.vol_base, mute = self.wicon.mute }
 	self.gauge.audio.blue.icon = {
 		low  = self.wicon.vol_low,
 		high = self.wicon.vol_high,
@@ -147,7 +147,7 @@ function theme:update()
 
 	-- Pulseaudio volume control
 	------------------------------------------------------------
-	self.widget.pulse.notify = { icon = self.wicon.audio }
+	self.widget.pulse.notify = { icon = self.wicon.vol_base }
 
 	-- Keyboard layout indicator
 	------------------------------------------------------------
