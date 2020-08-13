@@ -64,6 +64,10 @@ theme.wicon = {
 	wireless   = theme.path .. "/widget/wireless.svg",
 	monitor    = theme.path .. "/widget/monitor.svg",
 	audio      = theme.path .. "/widget/audio.svg",
+	vol_low    = theme.path .. "/widget/volume-low.svg",
+	vol_high   = theme.path .. "/widget/volume-high.svg",
+	vol_off    = theme.path .. "/widget/volume-off.svg",
+	vol_mute   = theme.path .. "/widget/volume-mute.svg",
 	headphones = theme.path .. "/widget/headphones.svg",
 	brightness = theme.path .. "/widget/brightness.svg",
 	keyboard   = theme.path .. "/widget/keyboard.svg",
@@ -134,7 +138,12 @@ function theme:update()
 	-- Volume control
 	------------------------------------------------------------
 	self.gauge.audio.red.icon = { volume = self.wicon.audio, mute = self.wicon.mute }
-	self.gauge.audio.blue.icon = self.wicon.headphones
+	self.gauge.audio.blue.icon = {
+		low  = self.wicon.vol_low,
+		high = self.wicon.vol_high,
+		off  = self.wicon.vol_off,
+		mute = self.wicon.vol_mute
+	}
 
 	-- Pulseaudio volume control
 	------------------------------------------------------------
