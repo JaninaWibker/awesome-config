@@ -680,7 +680,7 @@ function hotkeys:init(args)
 			{ description = "launch rofi", group = "Widgets" }
 		},
 		{
-			{ env.mod }, "space", function() awful.spawn("/usr/bin/rofi -modi drun,window,calc -show drun -no-history -no-sort -no-show-match -calc-command \"echo '{result} | xclip'\"") end,
+			{ env.mod }, "space", function() awful.spawn("/usr/bin/rofi -modi calc,drun,window -show calc -no-history -no-sort -no-show-match -calc-command \"echo '{result} | pbcopy'\"") end,
 			{ description = "launch rofi", group = "Widgets" }
 		},
 		{

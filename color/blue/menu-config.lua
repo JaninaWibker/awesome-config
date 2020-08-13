@@ -58,8 +58,8 @@ function menu:init(args)
 		{ "Documents",   env.fm .. " Documents", micon(theme_path .. "/folder/documents.svg") },
 		{ "Home",				 env.fm .. "",					 micon(theme_path .. "/folder/home.svg") },
 		separator,
-		{ "Media",       env.fm .. " /mnt/media",   micon(theme_path .. "/applications/folder.svg") },
-		{ "Storage",     env.fm .. " /mnt/storage", micon(theme_path .. "/applications/folder.svg") },
+		{ "Media",       env.fm .. " /mnt/media",        micon(theme_path .. "/applications/folder.svg") },
+		{ "Storage",     env.fm .. " /run/media/jannik", micon(theme_path .. "/applications/folder.svg") },
 	}
 
 	-- Exit submenu

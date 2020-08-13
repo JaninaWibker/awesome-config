@@ -43,7 +43,7 @@ function env:init(args)
 	self.is_high_dpi = true -- os.getenv("HIGH_DPI") == 1 -- TODO: remove "true -- "
 
 	-- light / dark theme
-	self.is_light_theme = os.getenv("THEME_VARIANT") == "dark"
+	self.is_light_theme = os.getenv("THEME_VARIANT") ~= "dark"
 
 	-- theme setup
 	beautiful.init(env.themedir .. "/theme.lua")

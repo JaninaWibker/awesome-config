@@ -99,12 +99,6 @@ textclock.buttons = awful.util.table.join(
 	awful.button({}, 1, function() calendar_widget.toggle() end)
 )
 
--- textclock:connect_signal("button::press",
---   function(_, _, _, button)
---       if button == 1 then calendar_widget.toggle() end
---   end
--- )
-
 -- Software update indcator
 --------------------------------------------------------------------------------
 redflat.widget.updates:init({ command = env.updates })
@@ -142,7 +136,7 @@ volume.buttons = awful.util.table.join(
 	awful.button({}, 5, function() volume.widget:change_volume({ down = true }) end),
 	awful.button({}, 2, function() volume.widget:mute()                         end),
 	awful.button({}, 3, function() redflat.float.player:show()                  end),
-	awful.button({}, 1, function() redflat.float.player:action("PlayPause")     end),
+	awful.button({}, 1, function() awful.spawn.with_shell("pgrep pavucontrol && pkill -9 pavucontrol || pavucontrol") end),
 	awful.button({}, 8, function() redflat.float.player:action("Previous")      end),
 	awful.button({}, 9, function() redflat.float.player:action("Next")          end)
 )
@@ -158,24 +152,6 @@ kbindicator.buttons = awful.util.table.join(
 	awful.button({}, 4, function () redflat.widget.keyboard:toggle()      end),
 	awful.button({}, 5, function () redflat.widget.keyboard:toggle(true)  end)
 )
--- -- Mail widget
--- --------------------------------------------------------------------------------
--- -- mail settings template
--- local my_mails = require("color.blue.mail-example")
-
--- -- safe load private mail settings
--- pcall(function() my_mails = require("private.mail-config") end)
-
--- -- widget setup
--- local mail = {}
--- redflat.widget.mail:init({ maillist = my_mails })
--- mail.widget = redflat.widget.mail()
-
--- -- buttons
--- mail.buttons = awful.util.table.join(
--- 	awful.button({ }, 1, function () awful.spawn.with_shell(env.mail) end),
--- 	awful.button({ }, 2, function () redflat.widget.mail:update(true) end)
--- )
 
 -- System resource monitoring widgets
 --------------------------------------------------------------------------------
@@ -259,15 +235,12 @@ awful.screen.connect_for_each_screen(
 				awful.tag({ "Music", "Full", "Aux" }, s, { al[9], al[7], al[6] })
 			elseif s.index == 3 then -- left vertical
 				awful.tag({ "Comm", "Term", "Aux" }, s, { al[9], al[7], al[6] })
-			elseif s.index == 4 then -- right horizontal
-				awful.tag({ "Main", "Full", "Code", "Read", "Split" }, s, { al[6], al[7], al[7], al[5], al[4] })
-			elseif s.index == 1 then -- left horizontal
-				awful.tag({ "Main", "Full", "Code", "Read", "Split" }, s, { al[6], al[7], al[7], al[5], al[3] })
+			elseif s.index == 4 then -- left horizontal
+				awful.tag({ "Main", "Read", "Code", "Aux", "Split" }, s, { al[6], al[7], al[7], al[5], al[4] })
+			elseif s.index == 1 then -- right horizontal
+				awful.tag({ "Main", "Write", "Code", "Full", "Split" }, s, { al[6], al[5], al[7], al[7], al[3] })
 			end
 		end
-
-		-- tags
-		-- awful.tag({ "Main", "Full", "Edit", "Read", "Free" }, s, { al[5], al[6], al[6], al[4], al[3] }) -- TODO: change tag names here
 
 		-- layoutbox widget
 		layoutbox[s] = redflat.widget.layoutbox({ screen = s })
@@ -342,27 +315,6 @@ awful.screen.connect_for_each_screen(
 				}
 			end
 		end
-
-		-- local right_widgets = { -- right widgets
-		-- 	layout = wibox.layout.fixed.horizontal,
-
-		-- 	-- separator,
-		-- 	-- env.wrapper(mail.widget, "mail", mail.buttons),
-		-- 	-- separator,
-		-- 	-- env.wrapper(kbindicator.widget, "keyboard", kbindicator.buttons),
-		-- 	separator,
-		-- 	env.wrapper(sysmon.widget.network, "network"),
-		-- 	separator,
-		-- 	env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
-		-- 	separator,
-		-- 	env.wrapper(volume.widget, "volume", volume.buttons),
-		-- 	separator,
-		-- 	env.wrapper(tray.widget, "tray", tray.buttons),
-		-- 	separator,
-		-- 	env.wrapper(textclock.widget, "textclock", textclock.buttons),
-		-- 	-- separator,
-		-- 	-- env.wrapper(sysmon.widget.battery, "battery"),
-		-- }
 
 		-- add widgets to the wibox
 		s.panel:setup {

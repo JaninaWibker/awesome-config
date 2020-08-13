@@ -58,13 +58,13 @@ function titlebar:init()
 	local style = {}
 
 	-- titlebar schemes
-	style.base   = redutil.table.merge(redutil.table.check(beautiful, "titlebar.base") or {}, { size = 5 }) -- TODO: use this to shrink the height of the titlebar
+	style.base   = redutil.table.merge(redutil.table.check(beautiful, "titlebar.base") or {}, { size = 5 })
 	style.iconic = redutil.table.merge(style.base, { size = 24 })
 
 	-- titlebar elements styles
 	style.mark_mini = redutil.table.merge(
 		redutil.table.check(beautiful, "titlebar.mark") or {},
-		{ size = 16, gap = 6, angle = 0 } -- TODO: use this to shrink the "floating", "sticky" and "<idk>" indicators in the titlebar
+		{ size = 16, gap = 6, angle = 0 }
 	)
 	style.icon = redutil.table.merge(
 		redutil.table.check(beautiful, "titlebar.icon") or {},
