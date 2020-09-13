@@ -10,16 +10,18 @@ local theme = {}
 -----------------------------------------------------------------------------------------------------------------------
 theme.color = {
 	-- main colors
-	main      = "#02606D",
-	gray      = "#575757",
-	bg        = "#161616",
-	bg_second = "#181818",
-	wibox     = "#000000",
-	icon      = "#a0a0a0",
-	text      = "#aaaaaa",
-	urgent    = "#B25500",
-	highlight = "#e0e0e0",
-	border    = "#404040",
+	main      		= "#02606D",
+	widget_main		= "#02606D",
+	tasklist_main	= "#02606D",
+	gray      		= "#575757",
+	bg        		= "#161616",
+	bg_second 		= "#181818",
+	wibox     		= "#000000",
+	icon      		= "#a0a0a0",
+	text      		= "#aaaaaa",
+	urgent    		= "#B25500",
+	highlight 		= "#e0e0e0",
+	border    		= "#404040",
 
 	-- secondary colors
 	shadow1   = "#141414",

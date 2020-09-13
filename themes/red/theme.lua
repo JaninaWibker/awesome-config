@@ -10,8 +10,10 @@ local theme = require("themes/colored/theme")
 
 -- Color scheme
 -----------------------------------------------------------------------------------------------------------------------
-theme.color.main   = "#A90017"
-theme.color.urgent = "#00725B"
+theme.color.main					= "#A90017"
+theme.color.widget_main		= "#A90017"
+theme.color.tasklist_main	= "#A90017"
+theme.color.urgent 				= "#00725B"
 
 
 -- Common

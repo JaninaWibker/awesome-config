@@ -137,7 +137,7 @@ function theme:update()
 
 	-- Volume control
 	------------------------------------------------------------
-	self.gauge.audio.red.icon = { volume = self.wicon.vol_base, mute = self.wicon.mute }
+	self.gauge.audio.red.icon = { volume = self.wicon.vol_base, mute = self.wicon.vol_mute }
 	self.gauge.audio.blue.icon = {
 		low  = self.wicon.vol_low,
 		high = self.wicon.vol_high,
