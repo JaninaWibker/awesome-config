@@ -101,7 +101,7 @@ textclock.buttons = awful.util.table.join(
 
 -- Software update indcator
 --------------------------------------------------------------------------------
-redflat.widget.updates:init({ command = env.updates })
+redflat.widget.updates:init({ command = env.updates, command_action = env.updates_action })
 
 -- Layoutbox configure
 --------------------------------------------------------------------------------

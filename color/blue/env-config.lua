@@ -29,7 +29,8 @@ function env:init(args)
 	self.fm = args.fm or "thunar"
 	self.mail = args.mail or "thunderbird"
 	self.player = args.player or "pragha"
-	self.updates = args.updates or "bash -c 'pacman -Qu | grep -v ignored | wc -l'"
+	self.updates = args.updates or "bash -c 'yaourt -Qu | grep -v ignored | wc -l'"
+	self.updates_action = args.updates_action or (self.terminal .. " -e yaourt -Syua")
 	self.home = os.getenv("HOME")
 	self.themedir = awful.util.get_configuration_dir() .. "themes/" .. self.theme
 	-- boolean defaults is pain

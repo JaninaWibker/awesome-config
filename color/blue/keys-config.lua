@@ -605,10 +605,6 @@ function hotkeys:init(args)
 			{ env.mod, "Control" }, "F1", function() apphelper(appkeys) end,
 			{ description = "[Hold] Show hotkeys helper for application", group = "Main" }
 		},
-		{
-			{ env.mod }, "c", function() redflat.float.keychain:activate(keyseq, "User") end,
-			{ description = "[Hold] User key sequence", group = "Main" }
-		},
 
 		{
 			{ env.mod }, "F2", function () redflat.service.navigator:run() end,
