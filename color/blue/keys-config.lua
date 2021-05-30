@@ -692,6 +692,10 @@ function hotkeys:init(args)
 			{ description = "find cursor", group = "Widgets" }
 		},
 		{
+			{ "Control", "Shift" }, "1", function() awful.spawn.with_shell("$HOME/programs/boomer/boomer") end,
+			{ description = "Zoom mode (boomer)", group = "Widgets" }
+		},
+		{
 			{ "Control", "Shift" }, "2", function() awful.spawn("/usr/bin/flameshot full -c") end,
 			{ description = "Take screenshot (full)", group = "Widgets" }
 		},
