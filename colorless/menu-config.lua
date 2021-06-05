@@ -35,7 +35,7 @@ function menu:init(args)
 	-- This issue can be reduced by using additional settings like custom desktop files directory
 	-- and user only icon theme. See colored configs for more details.
 
-	-- At worst, you can give up all applications widgets (appmenu, applauncher, appswitcher, qlaunch) in your config
+	-- At worst, you can give up all applications widgets (appmenu, applauncher, appswitcher) in your config
 	local appmenu = redflat.service.dfparser.menu({ icons = icon_style, wm_name = "awesome" })
 
 	-- Main menu

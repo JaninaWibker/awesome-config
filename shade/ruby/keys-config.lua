@@ -22,7 +22,6 @@ local redtip = redflat.float.hotkeys
 local laycom = redflat.layout.common
 local grid = redflat.layout.grid
 local map = redflat.layout.map
-local qlaunch = redflat.float.qlaunch
 local numkeys_line = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 local tagkeys_line = { "q", "w", "e", "r", "t", "y", "u", "i", "o" }
 
@@ -203,9 +202,6 @@ function hotkeys:init(args)
 	local volume_raise = function() volume:change_volume({ show_notify = true }) end
 	local volume_lower = function() volume:change_volume({ show_notify = true, down = true }) end
 	local volume_mute  = function() volume:mute() end
-
-	-- Init widgets
-	redflat.float.qlaunch:init()
 
 	-- Application hotkeys helper
 	--------------------------------------------------------------------------------
@@ -862,10 +858,6 @@ function hotkeys:init(args)
 		{
 			{ env.mod }, "p", function() redflat.float.prompt:run() end,
 			{ description = "Prompt box", group = "Launchers" }
-		},
-		{
-			{ env.mod }, "g", function() qlaunch:show() end,
-			{ description = "Application quick launcher", group = "Launchers" }
 		},
 
 		{

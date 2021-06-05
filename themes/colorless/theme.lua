@@ -61,7 +61,6 @@ theme.fonts = {
 	tooltip  = "Helvetica Neue 12",      -- tooltip font
 	notify   = "Helvetica Neue bold 14", -- redflat notify popup font
 	clock    = "Helvetica Neue bold 12", -- textclock widget font
-	qlaunch  = "Helvetica Neue bold 14", -- quick launch key label font
 	title    = "Helvetica Neue bold 12", -- widget titles font
 	tiny     = "Helvetica Neue bold 10", -- smallest font for widgets
 	keychain = "Helvetica Neue bold 14", -- key sequence tip font
@@ -917,49 +916,6 @@ function theme:init()
 	self.float.appswitcher.hotkeys = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
 	                                   "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12" }
 
-	-- Quick launcher
-	------------------------------------------------------------
-	self.float.qlaunch = {
-		geometry      = { width = 1400, height = 170 }, -- widget size
-
-		border_width  = 0,                   -- widget border width
-		border_margin = { 5, 5, 12, 15 },    -- margins around widget content
-		notify        = {},                  -- redflat notify style (see theme.float.notify)
-		shape         = nil,                 -- wibox shape
-		recoloring    = false,               -- apply redflat recoloring feature on application icons
-		label_font    = self.fonts.qlaunch,  -- font of application mark(key)
-		color         = self.color,          -- colors (main used)
-		df_icon       = self.icon.system,    -- fallback application icon
-		no_icon       = self.icon.unknown,   -- icon for unused application slot
-
-		-- desktop file parser settings (see theme.service.dfparser)
-		parser = {
-			desktop_file_dirs = awful.util.table.join(
-				self.service.dfparser.desktop_file_dirs,
-				{ '~/.local/share/applications-fake' }
-			)
-		},
-
-		appline       = {
-			iwidth = 140,           -- application item width
-			im = { 5, 5, 0, 0 },    -- margins around application item area
-			igap = { 0, 0, 5, 15 }, -- margins around application icon itself (will affect icon size)
-			lheight = 26            -- height of application mark(key) area
-		},
-		state         = {
-			gap = 5,    -- space between application state marks
-			radius = 5, -- application state mark radius
-			size = 10,  -- application state mark size
-			height = 14 -- height of application state marks area
-		},
-
-		-- redflat key tip settings
-		keytip        = { geometry = { width = 600 } },
-
-		-- file to store widget data
-		-- this widget is rare one which need to keep settings between sessions
-		configfile      = os.getenv("HOME") .. "/.cache/awesome/applist",
-	}
 
 	-- Hotkeys helper
 	------------------------------------------------------------

@@ -253,7 +253,6 @@ theme.float.hotkeys.geometry   = { width = 1420 }
 theme.float.appswitcher.keytip = { geometry = { width = 400 }, exit = true }
 theme.float.keychain.keytip    = { geometry = { width = 1020 }, column = 2 }
 theme.float.top.keytip         = { geometry = { width = 400 } }
-theme.float.apprunner.keytip   = { geometry = { width = 400 } }
 theme.widget.updates.keytip    = { geometry = { width = 400 } }
 theme.menu.keytip              = { geometry = { width = 400 } }
 

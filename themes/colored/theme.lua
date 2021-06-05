@@ -28,7 +28,6 @@ theme.fonts = {
 	tooltip  = "Menlo Bold " .. (is_high_dpi and "6" or "12"),     			-- tooltip font
 	notify   = "Helvetica Neue bold 14",	-- redflat notify popup font
 	clock    = "Menlo Bold " .. (is_high_dpi and "6" or "12"),   				-- textclock widget font
-	qlaunch  = "Helvetica Neue bold 14",	-- quick launch key label font
 	keychain = "Menlo bold 16",						-- key sequence tip font
 	title    = "Helvetica Neue Bold " .. (is_high_dpi and "6" or "12"),	-- widget titles font -- TODO: not tested
 	tiny     = "Helvetica Neue bold 10",	-- smallest font for widgets
@@ -149,15 +148,6 @@ function theme:update()
 	------------------------------------------------------------
 	self.widget.pulse.notify = { icon = self.wicon.vol_base }
 
-	-- Keyboard layout indicator
-	------------------------------------------------------------
-	self.widget.keyboard.icon = self.wicon.keyboard
-
-	-- Mail indicator
-	------------------------------------------------------------
-	self.widget.mail.icon = self.wicon.mail
-	self.widget.mail.notify = { icon = self.wicon.mail }
-
 	-- System updates indicator
 	------------------------------------------------------------
 	self.widget.updates.notify = { icon = self.wicon.package }
@@ -172,7 +162,7 @@ function theme:update()
 	self.widget.layoutbox.menu.icon_margin  = { 8, 12, 9, 9 }
 	self.widget.layoutbox.menu.width = 200
 
-	-- Tasklist
+	-- Tasklist -- TODO: asdf
 	------------------------------------------------------------
 	self.widget.tasklist.winmenu.hide_action = { min = false, move = false }
 	self.widget.tasklist.tasktip.margin = { 8, 8, 4, 4 }
@@ -188,19 +178,10 @@ function theme:update()
 		                   y = mouse.screen.workarea.y + mouse.screen.workarea.height }
 		wibox:geometry(geometry)
 	end
-
-	-- Application runner
-	------------------------------------------------------------
-	self.float.apprunner.title_icon = self.wicon.search
-	self.float.apprunner.keytip = { geometry = { width = 400 } }
-
+	
 	-- Application switcher
 	------------------------------------------------------------
 	self.float.appswitcher.keytip = { geometry = { width = 400 }, exit = true }
-
-	-- Quick launcher
-	------------------------------------------------------------
-	self.float.qlaunch.keytip = { geometry = { width = 600 } }
 
 	-- Hotkeys helper
 	------------------------------------------------------------

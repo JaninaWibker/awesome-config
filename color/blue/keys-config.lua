@@ -12,7 +12,7 @@ local redflat = require("redflat")
 local hotkeys = { mouse = {}, raw = {}, keys = {}, fake = {} }
 
 -- key aliases
-local apprunner = redflat.float.apprunner
+-- local apprunner = redflat.float.apprunner
 local appswitcher = redflat.float.appswitcher
 local current = redflat.widget.tasklist.filter.currenttags
 local allscr = redflat.widget.tasklist.filter.allscreen
@@ -22,7 +22,6 @@ local laycom = redflat.layout.common
 local grid = redflat.layout.grid
 local map = redflat.layout.map
 local redtitle = redflat.titlebar
-local qlaunch = redflat.float.qlaunch
 
 -- Key support functions
 -----------------------------------------------------------------------------------------------------------------------
@@ -135,9 +134,6 @@ function hotkeys:init(args)
 	local volume_lower = function() volume:change_volume({ show_notify = true, down = true }) end
 	local volume_mute  = function() volume:mute() end
 
-	-- Init widgets
-	redflat.float.qlaunch:init()
-
 	-- Application hotkeys helper
 	--------------------------------------------------------------------------------
 	local apphelper = function(keys)
@@ -163,19 +159,19 @@ function hotkeys:init(args)
 
 	-- Apprunner widget
 	------------------------------------------------------------
-	local apprunner_keys_move = {
-		{
-			{ env.mod }, "k", function() apprunner:down() end,
-			{ description = "Select next item", group = "Navigation" }
-		},
-		{
-			{ env.mod }, "i", function() apprunner:up() end,
-			{ description = "Select previous item", group = "Navigation" }
-		},
-	}
+	-- local apprunner_keys_move = {
+	-- 	{
+	-- 		{ env.mod }, "k", function() apprunner:down() end,
+	-- 		{ description = "Select next item", group = "Navigation" }
+	-- 	},
+	-- 	{
+	-- 		{ env.mod }, "i", function() apprunner:up() end,
+	-- 		{ description = "Select previous item", group = "Navigation" }
+	-- 	},
+	-- }
 
-	-- apprunner:set_keys(awful.util.table.join(apprunner.keys.move, apprunner_keys_move), "move")
-	apprunner:set_keys(apprunner_keys_move, "move")
+	-- -- apprunner:set_keys(awful.util.table.join(apprunner.keys.move, apprunner_keys_move), "move")
+	-- apprunner:set_keys(apprunner_keys_move, "move")
 
 	-- Menu widget
 	------------------------------------------------------------
@@ -283,19 +279,6 @@ function hotkeys:init(args)
 		{ {}, "g", {}, {} }, -- run or rise group
 		{ {}, "f", {}, {} }, -- launch application group
 	}
-
-	-- quick launch key sequence actions
-	for i = 1, 9 do
-		local ik = tostring(i)
-		table.insert(keyseq[3][5][3], {
-			{}, ik, function() qlaunch:run_or_raise(ik) end,
-			{ description = "Run or rise application №" .. ik, group = "Run or Rise", keyset = { ik } }
-		})
-		table.insert(keyseq[3][6][3], {
-			{}, ik, function() qlaunch:run_or_raise(ik, true) end,
-			{ description = "Launch application №".. ik, group = "Quick Launch", keyset = { ik } }
-		})
-	end
 
 	-- application kill sequence actions
 	keyseq[3][1][3] = {

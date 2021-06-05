@@ -173,50 +173,6 @@ microphone.buttons = awful.util.table.join(
 	awful.button({}, 5, function() microphone.widget:change_volume({ down = true }) end)
 )
 
--- Keyboard layout indicator
---------------------------------------------------------------------------------
-local kbindicator = {}
-redflat.widget.keyboard:init({ "English", "Russian" })
-kbindicator.widget = redflat.widget.keyboard()
-
-kbindicator.buttons = awful.util.table.join(
-	awful.button({}, 1, function () redflat.widget.keyboard:toggle_menu() end),
-	awful.button({}, 4, function () redflat.widget.keyboard:toggle()      end),
-	awful.button({}, 5, function () redflat.widget.keyboard:toggle(true)  end)
-)
-
--- Mail widget
---------------------------------------------------------------------------------
--- mail settings template
-local my_mails = require("color.blue.mail-example")
-
--- safe load private mail settings
-pcall(function() my_mails = require("private.mail-config") end)
-
--- widget setup
-local mail = {}
-redflat.widget.mail:init({ maillist = my_mails, update_timeout = 15 * 60 })
-mail.widget = redflat.widget.mail()
-
--- buttons
-mail.buttons = awful.util.table.join(
-	awful.button({ }, 1, function () awful.spawn.with_shell(env.mail) end),
-	awful.button({ }, 2, function () redflat.widget.mail:update(true) end)
-)
-
--- Software update indcator
---------------------------------------------------------------------------------
-redflat.widget.updates:init({ command = env.updates })
-
-local updates = {}
-updates.widget = redflat.widget.updates()
-
-updates.buttons = awful.util.table.join(
-	awful.button({ }, 1, function () redflat.widget.updates:toggle() end),
-	awful.button({ }, 2, function () redflat.widget.updates:update(true) end),
-	awful.button({ }, 3, function () redflat.widget.updates:toggle() end)
-)
-
 -- System resource monitoring widgets
 --------------------------------------------------------------------------------
 local sysmon = { widget = {}, buttons = {} }
@@ -294,10 +250,6 @@ awful.screen.connect_for_each_screen(
 				separator,
 				env.wrapper(taglist[s], "taglist"),
 				separator,
-				env.wrapper(kbindicator.widget, "keyboard", kbindicator.buttons),
-				separator,
-				env.wrapper(mail.widget, "mail", mail.buttons),
-				separator,
 			},
 			{ -- middle widget
 				layout = wibox.layout.align.horizontal,
@@ -309,8 +261,6 @@ awful.screen.connect_for_each_screen(
 			{ -- right widgets
 				layout = wibox.layout.fixed.horizontal,
 
-				separator,
-				env.wrapper(updates.widget, "updates", updates.buttons),
 				separator,
 				env.wrapper(sysmon.widget.network, "network"),
 				separator,
