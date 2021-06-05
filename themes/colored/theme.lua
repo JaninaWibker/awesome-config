@@ -45,7 +45,7 @@ theme.fonts = {
 }
 
 theme.cairo_fonts = {
-	tag         = { font = "Source Code Pro", size = 12, face = 1 },				-- tag widget font
+	tag         = { font = "Noto Sans SC", size = 12, face = 1 },				-- tag widget font
 	appswitcher = { font = "Menlo", size = (is_high_dpi and 6 or 12), face = 1 },					-- appswitcher widget font
 	navigator   = {
 		title = { font = "Source Code Pro", size = 24, face = 1, slant = 0 },	-- window navigation title font

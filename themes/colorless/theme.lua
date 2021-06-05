@@ -78,7 +78,7 @@ theme.fonts = {
 }
 
 theme.cairo_fonts = {
-	tag         = { font = "Hack", size = 16, face = 1 }, -- tag widget font
+	-- tag         = { font = "Hack", size = 16, face = 1 }, -- tag widget font
 	appswitcher = { font = "Helvetica Neue", size = 22, face = 1 }, -- appswitcher widget font
 	navigator   = {
 		title = { font = "Helvetica Neue", size = 28, face = 1, slant = 0 }, -- window navigation title font

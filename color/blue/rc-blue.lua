@@ -228,17 +228,17 @@ awful.screen.connect_for_each_screen(
 		env.wallpaper(s)
 
 		if screen:count() ~= 4 then
-			awful.tag({ "Main", "Full", "Code", "Read", "Free" }, s, { al[6], al[7], al[7], al[5], al[3] })
+			awful.tag({ "一", "二", "三", "四", "五" }, s, { al[6], al[7], al[7], al[5], al[3] })
 		else
 
 			if		 s.index == 2	then -- right vertical
-				awful.tag({ "Music", "Full", "Aux" }, s, { al[9], al[7], al[6] })
+				awful.tag({ "一", "二", "三" }, s, { al[9], al[7], al[6] })
 			elseif s.index == 3 then -- left vertical
-				awful.tag({ "Comm", "Term", "Aux" }, s, { al[9], al[7], al[6] })
+				awful.tag({ "一", "二", "三" }, s, { al[9], al[7], al[6] })
 			elseif s.index == 4 then -- left horizontal
-				awful.tag({ "Main", "Read", "Code", "Aux", "Split" }, s, { al[6], al[7], al[7], al[5], al[4] })
+				awful.tag({ "一", "二", "三", "四", "五" }, s, { al[6], al[7], al[7], al[5], al[4] })
 			elseif s.index == 1 then -- right horizontal
-				awful.tag({ "Main", "Write", "Code", "Full", "Split" }, s, { al[6], al[5], al[7], al[7], al[3] })
+				awful.tag({ "一", "二", "三", "四", "五" }, s, { al[6], al[5], al[7], al[7], al[3] })
 			end
 		end
 
