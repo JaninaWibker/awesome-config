@@ -70,12 +70,6 @@ theme.desktop.places = {
 -- but grab directly from rc-files to rewrite base style
 theme.individual.desktop = { speedmeter = {}, multimeter = {}, multiline = {}, singleline = {} }
 
--- Multilines disks (individual widget)
-theme.individual.desktop.multiline.disks = {
-	unit  = { { "KB", 1 }, { "MB", 1024^1 }, { "GB", 1024^2 } },
-	lines = { show = { text = false } },
-}
-
 -- Panel widgets
 -----------------------------------------------------------------------------------------------------------------------
 
