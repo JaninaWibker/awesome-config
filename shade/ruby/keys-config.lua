@@ -13,7 +13,6 @@ local redflat = require("redflat")
 local hotkeys = { mouse = {}, raw = {}, keys = {}, fake = {} }
 
 -- key aliases
-local apprunner = redflat.float.apprunner
 local appswitcher = redflat.float.appswitcher
 local current = redflat.widget.tasklist.filter.currenttags
 local allscr = redflat.widget.tasklist.filter.allscreen
@@ -225,22 +224,6 @@ function hotkeys:init(args)
 
 	-- Keys for widgets
 	--------------------------------------------------------------------------------
-
-	-- Apprunner widget
-	------------------------------------------------------------
-	local apprunner_keys_move = {
-		{
-			{ env.mod }, "k", function() apprunner:down() end,
-			{ description = "Select next item", group = "Navigation" }
-		},
-		{
-			{ env.mod }, "i", function() apprunner:up() end,
-			{ description = "Select previous item", group = "Navigation" }
-		},
-	}
-
-	 apprunner:set_keys(awful.util.table.join(apprunner.keys.move, apprunner_keys_move), "move")
-	--apprunner:set_keys(apprunner_keys_move, "move")
 
 	-- Menu widget
 	------------------------------------------------------------
@@ -850,10 +833,6 @@ function hotkeys:init(args)
 		{
 			{ env.mod }, "s", function() mainmenu:show() end,
 			{ description = "Main menu", group = "Launchers" }
-		},
-		{
-			{ env.mod }, "d", function() apprunner:show() end,
-			{ description = "Application launcher", group = "Launchers" }
 		},
 		{
 			{ env.mod }, "p", function() redflat.float.prompt:run() end,

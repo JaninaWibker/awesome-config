@@ -24,8 +24,8 @@ theme.color = {
 	border    		= "#404040",
 
 	-- secondary colors
-	shadow1   = "#141414",
-	shadow2   = "#313131",
+	shadow1   = "#000000",
+	shadow2   = "#000000",
 	shadow3   = "#1c1c1c",
 	shadow4   = "#767676",
 
@@ -392,9 +392,9 @@ function theme:init()
 	}
 
 	self.gauge.tag.blue = {
-		width      = 80,                  -- widget width
+		width      = 64,                   -- widget width
 		show_min   = false,                -- indicate minimized apps by color
-		text_shift = 12,                   -- shift from upper border of widget to lower border of text
+		text_shift = 14,                   -- shift from upper border of widget to lower border of text
 		color      = self.color,           -- colors (main used)
 		font       = self.cairo_fonts.tag, -- font
 
@@ -402,7 +402,7 @@ function theme:init()
 		point = {
 			width = 56, -- apps indicator total width
 			height = 3, -- apps indicator total height
-			gap = 15,   -- shift from upper border of widget to apps indicator // TODO: USE THIS TO MAKE BAR SMALLER
+			gap = 18,   -- shift from upper border of widget to apps indicator // TODO: USE THIS TO MAKE BAR SMALLER
 			dx = 4      -- gap between apps indicator parts
 		},
 	}
@@ -706,9 +706,9 @@ function theme:init()
 	self.widget.tasklist.winmenu = {
 		micon          = self.icon, -- some common menu icons
 		titleline      = {
-			-- font = self.fonts.title, -- menu title height
-			font = "Menlo Bold 7",
-			height = 25              -- menu title font
+			-- font = self.fonts.title, 
+			font = "Menlo Bold 7", -- menu title font
+			height = 25            -- menu title height
 		},
 		stateline      = { height = 30 },              -- height of menu item with state icons
 		state_iconsize = { width = 18, height = 18 },  -- size for state icons
@@ -741,9 +741,9 @@ function theme:init()
 		unknown   = self.icon.unknown, -- this one used as fallback
 	}
 
-	-- multiline task element tip
+	-- multiline task element tooltip
 	self.widget.tasklist.tasktip = {
-		border_width = 2,                -- tip border width
+		border_width = 2,                -- tooltip border width
 		margin       = { 10, 10, 5, 5 }, -- margins around text in tip lines
 		timeout      = 0.5,              -- hide timeout
 		shape        = nil,              -- wibox shape
@@ -854,32 +854,7 @@ function theme:init()
 		set_position  = nil,
 	}
 
-	-- Application runner
-	------------------------------------------------------------
-	self.float.apprunner = {
-		itemnum       = 6,                                 -- number of visible items
-		geometry      = { width = 620, height = 480 },     -- widget size
-		border_margin = { 24, 24, 24, 24 },                -- margin around widget content
-		icon_margin   = { 8, 16, 0, 0 },                   -- margins around widget icon
-		title_height  = 48,                                -- height of title (promt and icon) area
-		prompt_height = 35,                                -- prompt line height
-		title_icon    = self.icon.system,                  -- widget icon
-		border_width  = 0,                                 -- widget border width
-		parser        = {},                                -- desktop file parser settings (see theme.service.dfparser)
-		field         = nil,                               -- redflat text field style(see theme.float.decoration.field)
-		shape         = nil,                               -- wibox shape
-		color         = self.color,                        -- colors (main used)
-
-		name_font     = self.fonts.title,     -- application title font
-		comment_font  = self.fonts.main,      -- application comment font
-		list_text_vgap   = 4,                 -- space between application title and comment
-		list_icon_margin = { 6, 12, 6, 6 },   -- margins around applications icons
-		dimage           = self.icon.unknown, -- fallback icon for applications
-
-		keytip        = { geometry = { width = 400 } }, -- redflat key tip settings
-	}
-
-	-- Application swit`cher
+	-- Application switcher
 	------------------------------------------------------------
 	self.float.appswitcher = {
 		wibox_height    = 240, -- widget height

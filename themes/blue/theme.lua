@@ -28,7 +28,7 @@ theme.path = awful.util.get_configuration_dir() .. "themes/blue"
 
 -- Main config
 --------------------------------------------------------------------------------
-theme.panel_height = 24 -- panel height -- TODO: change this to like 24 or something (breaks other things)
+theme.panel_height = 24 -- panel height
 -- theme.wallpaper    = theme.path .. "/wallpaper/custom.jpg"
 -- theme.wallpaper_vertical = theme.path .. "/wallpaper/315.jpg"
 

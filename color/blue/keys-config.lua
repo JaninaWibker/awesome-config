@@ -12,7 +12,6 @@ local redflat = require("redflat")
 local hotkeys = { mouse = {}, raw = {}, keys = {}, fake = {} }
 
 -- key aliases
--- local apprunner = redflat.float.apprunner
 local appswitcher = redflat.float.appswitcher
 local current = redflat.widget.tasklist.filter.currenttags
 local allscr = redflat.widget.tasklist.filter.allscreen
@@ -157,21 +156,6 @@ function hotkeys:init(args)
 	-- Keys for widgets
 	--------------------------------------------------------------------------------
 
-	-- Apprunner widget
-	------------------------------------------------------------
-	-- local apprunner_keys_move = {
-	-- 	{
-	-- 		{ env.mod }, "k", function() apprunner:down() end,
-	-- 		{ description = "Select next item", group = "Navigation" }
-	-- 	},
-	-- 	{
-	-- 		{ env.mod }, "i", function() apprunner:up() end,
-	-- 		{ description = "Select previous item", group = "Navigation" }
-	-- 	},
-	-- }
-
-	-- -- apprunner:set_keys(awful.util.table.join(apprunner.keys.move, apprunner_keys_move), "move")
-	-- apprunner:set_keys(apprunner_keys_move, "move")
 
 	-- Menu widget
 	------------------------------------------------------------
@@ -580,16 +564,16 @@ function hotkeys:init(args)
 	-- Global keys
 	--------------------------------------------------------------------------------
 	self.raw.root = {
-		{
+		{ -- TODO: maybe think of a better shortcut for this feature (F keys are pretty annoying to hit)
 			{ env.mod }, "F1", function() redtip:show() end,
 			{ description = "[Hold] Show awesome hotkeys helper", group = "Main" }
 		},
-		{
+		{ -- TODO: maybe think of a better shortcut for this feature (F keys are pretty annoying to hit)
 			{ env.mod, "Control" }, "F1", function() apphelper(appkeys) end,
 			{ description = "[Hold] Show hotkeys helper for application", group = "Main" }
 		},
 
-		{
+		{ -- TODO: maybe think of a better shortcut for this feature (F keys are pretty annoying to hit)
 			{ env.mod }, "F2", function () redflat.service.navigator:run() end,
 			{ description = "[Hold] Tiling window control mode", group = "Window control" }
 		},
