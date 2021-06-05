@@ -79,6 +79,7 @@ theme.fonts = {
 theme.cairo_fonts = {
 	-- tag         = { font = "Hack", size = 16, face = 1 }, -- tag widget font
 	appswitcher = { font = "Helvetica Neue", size = 22, face = 1 }, -- appswitcher widget font
+	workspace   = { font = "Noto Sans SC",   size = 12, face = 1 },
 	navigator   = {
 		title = { font = "Helvetica Neue", size = 28, face = 1, slant = 0 }, -- window navigation title font
 		main  = { font = "Helvetica Neue", size = 22, face = 1, slant = 0 }  -- window navigation  main font
@@ -391,7 +392,7 @@ function theme:init()
 	}
 
 	self.gauge.tag.blue = {
-		width      = 103,                  -- widget width
+		width      = 80,                  -- widget width
 		show_min   = false,                -- indicate minimized apps by color
 		text_shift = 12,                   -- shift from upper border of widget to lower border of text
 		color      = self.color,           -- colors (main used)
@@ -399,10 +400,10 @@ function theme:init()
 
 		-- apps indicator
 		point = {
-			width = 80, -- apps indicator total width
+			width = 56, -- apps indicator total width
 			height = 3, -- apps indicator total height
 			gap = 15,   -- shift from upper border of widget to apps indicator // TODO: USE THIS TO MAKE BAR SMALLER
-			dx = 5      -- gap between apps indicator parts
+			dx = 4      -- gap between apps indicator parts
 		},
 	}
 
@@ -447,7 +448,7 @@ function theme:init()
 		show_min   = true,
 		text_shift = 12,
 		color      = self.color,
-		font       = self.cairo_fonts.tag,
+		font       = self.cairo_fonts.title,
 		point    = { width = 70, height = 3, gap = 17, dx = 5 },
 	}
 
@@ -705,7 +706,8 @@ function theme:init()
 	self.widget.tasklist.winmenu = {
 		micon          = self.icon, -- some common menu icons
 		titleline      = {
-			font = self.fonts.title, -- menu title height
+			-- font = self.fonts.title, -- menu title height
+			font = "Menlo Bold 7",
 			height = 25              -- menu title font
 		},
 		stateline      = { height = 30 },              -- height of menu item with state icons
@@ -715,11 +717,11 @@ function theme:init()
 		color          = self.color,                   -- colors (main used)
 
 		-- main menu style (see theme.menu)
-		menu = { width = 200, color = { right_icon = self.color.icon }, ricon_margin = { 9, 9, 9, 9 } },
+		menu = { width = 200, color = { right_icon = self.color.icon }, ricon_margin = { 9, 9, 9, 9 }, font = "Menlo Bold 6" },
 
 		-- tag action submenu style (see theme.menu)
 		tagmenu = { width = 160, color = { right_icon = self.color.icon, left_icon = self.color.icon },
-		            icon_margin = { 9, 9, 9, 9 } },
+		            icon_margin = { 9, 9, 9, 9 }, font = "Menlo Bold 6" },
 
 		-- set which action will hide menu after activate
 		hide_action = { min = true, move = true, max = false, add = false, floating = false, sticky = false,
@@ -747,6 +749,7 @@ function theme:init()
 		shape        = nil,              -- wibox shape
 		sl_highlight = false,            -- highlight application state when it's single line tip
 		color = self.color,              -- colors (main used)
+		font  = "Menlo Bold 6"
 	}
 
 	-- task text aliases

@@ -23,32 +23,33 @@ theme.useless_gap         = 6  -- useless gap
 -- Fonts
 ------------------------------------------------------------
 theme.fonts = {
-	main     = "Helvetica Neue " .. (is_high_dpi and "7" or "14"),     	-- main font
-	menu     = "Source Code Pro " .. (is_high_dpi and "7" or "14"),     	-- main menu font
-	tooltip  = "Menlo Bold " .. (is_high_dpi and "6" or "12"),     			-- tooltip font
+	main     = "Helvetica Neue " .. (is_high_dpi and "7" or "14"),     	 -- main font
+	menu     = "Source Code Pro " .. (is_high_dpi and "7" or "14"),      -- main menu font
+	tooltip  = "Menlo Bold " .. (is_high_dpi and "6" or "12"),     			 -- tooltip font
 	notify   = "Helvetica Neue bold 14",	-- redflat notify popup font
-	clock    = "Menlo Bold " .. (is_high_dpi and "6" or "12"),   				-- textclock widget font
+	clock    = "Menlo Bold " .. (is_high_dpi and "6" or "12"),   				 -- textclock widget font
 	keychain = "Menlo bold 16",						-- key sequence tip font
-	title    = "Helvetica Neue Bold " .. (is_high_dpi and "6" or "12"),	-- widget titles font -- TODO: not tested
+	title    = "Helvetica Neue Bold " .. (is_high_dpi and "6" or "12"),	 -- widget titles font -- TODO: not tested
 	tiny     = "Helvetica Neue bold 10",	-- smallest font for widgets
-	titlebar = "Helvetica Neue Bold " .. (is_high_dpi and "6" or "12"),	-- client titlebar font -- TODO: not tested
+	titlebar = "Helvetica Neue Bold " .. (is_high_dpi and "6" or "12"),	 -- client titlebar font -- TODO: not tested
 	hotkeys  = {
-		main  = "Noto Sans " .. (is_high_dpi and "6" or "12"),        -- hotkeys helper main font
+		main  = "Noto Sans " .. (is_high_dpi and "6" or "12"),             -- hotkeys helper main font
 		key   = "Source Code Pro Light " .. (is_high_dpi and "6" or "12"), -- hotkeys helper key font (use monospace for align)
-		title = "Noto Sans bold " .. (is_high_dpi and "7" or "14"),   -- hotkeys helper group title font
+		title = "Noto Sans bold " .. (is_high_dpi and "7" or "14"),        -- hotkeys helper group title font
 	},
 	player   = {
-		main = "Noto Sans bold " .. (is_high_dpi and "6" or "12"),		-- player widget main font
-		time = "Noto Sans bold " .. (is_high_dpi and "7" or "14"),		-- player widget current time font
+		main = "Noto Sans bold " .. (is_high_dpi and "6" or "12"),		     -- player widget main font
+		time = "Noto Sans bold " .. (is_high_dpi and "7" or "14"),		     -- player widget current time font
 	},
 }
 
 theme.cairo_fonts = {
-	tag         = { font = "Noto Sans SC", size = 12, face = 1 },				-- tag widget font
-	appswitcher = { font = "Menlo", size = (is_high_dpi and 6 or 12), face = 1 },					-- appswitcher widget font
+	tag         = { font = "Noto Sans SC", size = 12, face = 1 },				          -- tag widget font
+	appswitcher = { font = "Menlo", size = (is_high_dpi and 6 or 12), face = 1 },	-- appswitcher widget font
+	title   = { font = "Source Code Pro", size = 12, face = 1 },				          -- window title font in tasklist
 	navigator   = {
-		title = { font = "Source Code Pro", size = 24, face = 1, slant = 0 },	-- window navigation title font
-		main  = { font = "Source Code Pro", size = 16, face = 1, slant = 0 }		-- window navigation  main font
+		title = { font = "Source Code Pro", size = 24, face = 1, slant = 0 },	      -- window navigation title font
+		main  = { font = "Source Code Pro", size = 16, face = 1, slant = 0 }		    -- window navigation  main font
 	},
 
 	desktop = {
@@ -166,7 +167,7 @@ function theme:update()
 	------------------------------------------------------------
 	self.widget.tasklist.winmenu.hide_action = { min = false, move = false }
 	self.widget.tasklist.tasktip.margin = { 8, 8, 4, 4 }
-	self.widget.tasklist.winmenu.tagmenu.width = 150
+	self.widget.tasklist.winmenu.tagmenu.width = 128
 
 	-- Floating widgets
 	--------------------------------------------------------------------------------
