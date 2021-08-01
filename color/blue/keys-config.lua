@@ -639,11 +639,11 @@ function hotkeys:init(args)
 			{ description = "launch dmenu", group = "Widgets" }
 		},
 		{
-			{ env.mod }, "r", function () awful.spawn("/usr/bin/rofi -modi combi,calc,run -combi-modi window,drun,ssh,run -show combi -no-history -no-sort -no-show-match -calc-command \"echo '{result} | xclip'\"") end,
+			{ env.mod }, "r", function () awful.spawn("/usr/bin/rofi -modi combi,calc,run -combi-modi window,drun,ssh,run -show combi -no-persist-history -no-sort -no-show-match -calc-command \"echo '{result}' | xclip -sel clip\"") end,
 			{ description = "launch rofi", group = "Widgets" }
 		},
 		{
-			{ env.mod }, "space", function() awful.spawn("/usr/bin/rofi -modi calc,drun,window -show calc -no-history -no-sort -no-show-match -calc-command \"echo '{result} | pbcopy'\"") end,
+			{ env.mod }, "space", function() awful.spawn("/usr/bin/rofi -modi calc,drun,window -show calc -no-persist-history -no-sort -no-show-match -calc-command \"echo '{result}' | xclip -sel clip\"") end,
 			{ description = "launch rofi", group = "Widgets" }
 		},
 		{

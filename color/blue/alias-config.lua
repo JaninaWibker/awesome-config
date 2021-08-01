@@ -10,6 +10,7 @@ local appnames = {}
 appnames["Vivaldi-stable"      ] = "Vivaldi"
 appnames["code-oss"            ] = "VSCode"
 appnames["Qemu-system-x86_64"  ] = "qemu"
+appnames["Microsoft Teams - Preview"] = "MS Teams"
 
 return appnames
 
