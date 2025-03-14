@@ -10,9 +10,9 @@ local theme = require("themes/colored/theme")
 
 -- Color scheme
 -----------------------------------------------------------------------------------------------------------------------
-theme.color.main   = "#B614AB" -- this is a modified version of the accent color of web.jannik.ml
-theme.color.main   = "#ff4d6a" -- this is one of the colors of the cyberpunk vscode theme
-theme.color.main   = "#ff00aa" -- this is another one of the colors of the cyberpunk vscode theme
+theme.color.main   = "#B614AB"
+theme.color.main   = "#ff4d6a"
+theme.color.main   = "#ff00aa"
 
 theme.color.widget_main   = "#ffffff"
 theme.color.tasklist_main = "#ffffff"
